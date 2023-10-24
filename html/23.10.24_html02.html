@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>img / a</title>
+  </head>
+  <body>
+    <!-- img 태그: 이미지 로드가 안될 경우를 대비해서 alt 속성이 중요하다. (src에서 이미지 로드가 안되면 alt 태그 정보를 불러온다 or 시각 장애인용 설명 글) -->
+    <!-- 서버 이미지 (웹 상에서 가져오기) -->
+    <img
+      width="300px"
+      height="auto"
+      src="https://t0.gstatic.com/licensed-image?q=tbn:ANd9GcTDaXXqVAgsvQXvzv-q_c8np9EJtzBQamO5xT3mIAwKYWtPCCEZJk6VdLzyNQ5VKJtv"
+      alt="스파이더맨이 캡틴아메리카 방패를 들고 있는 이미지"
+    />
+
+    <!-- 상대경로: 내가 이미지 파일을 가지고 있는 경우 (./~~~) -->
+    <img
+      width="300px"
+      height="auto"
+      src="./spiderman.jpeg"
+      alt="스파이더맨이 캡틴 아메리카 방패를 들고 있는 이미지인데 상대경로인 경우"
+    />
+    <!-- 절대경로: 고유한 경로 (파일 폴더) -->
+    <!-- 절대경로는 live server에서 불러오기 불가 -->
+    <img
+      width="300px"
+      height="auto"
+      src="/Users/jinchoi/Desktop/github/KDT10/html/spiderman.jpeg"
+      alt="스파이더맨이 캡틴 아메리카 방패를 들고 있는 이미지인데 절대 경로인 경우"
+    />
+    <!-- a 태그:  -->
+    <div>
+      <a href="https://www.naver.com" target="_selg"> 네이버 바로가기 기본값</a>
+      <a href="https://www.naver.com" target="_blank"> 네이버 바로가기 새탭</a>
+    </div>
+  </body>
+</html>

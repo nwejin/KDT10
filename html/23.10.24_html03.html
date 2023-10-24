@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- form 태그로 input 값 관리 / 시각적으로 변동사항은 없음 -->
+    <form>
+      <!-- placeholder: 입력전에 입력할 내용을 명시해줌 -->
+      <div>
+        <input type="text" name="" id="" placeholder="ID" disabled />
+      </div>
+      <div>
+        <input type="password" name="" id="" placeholder="Password" />
+      </div>
+      <div>
+        <input type="button" value="버튼" id="" />
+      </div>
+
+      <br />
+      <!-- 중복 선택이 가능: checkbox -->
+      <div>
+        <input type="checkbox" name="fruits" id="" value="사과" checked /> apple
+        <input type="checkbox" name="fruits" id="" value="바나나" /> banana
+        <input type="checkbox" name="fruits" id="" value="멜론" /> melon
+      </div>
+
+      <br />
+      <!-- 중복 선택이 불가능한: radio -->
+      <div>
+        <input type="radio" name="gender" id="" value="남" checked /> 남자
+        <input type="radio" name="gender" id="" value="여" /> 여자
+      </div>
+
+      <!-- 날짜 선택 -->
+      <div>
+        <input type="date" name="calender" id="" />
+        <!-- datetime-local은 기존적으로 현재 시간이 디폴트 값으로 나타남 -->
+        <input type="datetime-local" name="" id="" />
+      </div>
+
+      <div>
+        <select name="" id="">
+          <optgroup label="런던의 주인">
+            <option value="CHE" selected>첼시</option>
+            <option value="ARS">아스날</option>
+            <option value="TOT">토트넘</option>
+            <option value="PUL" disabled>풀럼 (선택불가)</option>
+          </optgroup>
+          <optgroup label="맨체스터의 주인">
+            <option value="MCY" selected>맨시티</option>
+            <option value="MTD">맨유</option>
+          </optgroup>
+        </select>
+      </div>
+    </form>
+  </body>
+</html>
