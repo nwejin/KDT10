@@ -1,0 +1,35 @@
+.org {
+  background-color: orange;
+  width: 100px;
+  height: 50px;
+}
+
+.yel {
+  background-color: yellow;
+  width: 150px;
+  height: 50px;
+}
+
+.gre {
+  background-color: green;
+  width: 200px;
+  height: 50px;
+}
+
+.blu {
+  background-color: blue;
+  width: 250px;
+  height: 50px;
+}
+
+.dbl {
+  background-color: darkblue;
+  width: 300px;
+  height: 50px;
+}
+
+.pur {
+  background-color: purple;
+  width: 350px;
+  height: 50px;
+}

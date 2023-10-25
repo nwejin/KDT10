@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS 선택자</title>
+    <style>
+      * {
+        color: green;
+      }
+
+      li {
+        color: blue;
+      }
+
+      .orange {
+        color: orange;
+      }
+
+      #pink {
+        font-size: 40px;
+        font-weight: bold;
+        color: pink;
+      }
+
+      span.orange {
+        background-color: blueviolet;
+      }
+
+      ul > #pink {
+      }
+
+      div .orange {
+        background-color: black;
+      }
+      .car + p {
+        color: brown;
+      }
+
+      .car ~ p {
+        color: blanchedalmond;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <ul>
+        <li>사과</li>
+        <li class="orange" id="pink">딸기</li>
+        <li class="orange">오렌지</li>
+      </ul>
+      <div class="car">당근</div>
+      <p>토마토</p>
+      <p>피망</p>
+      <span class="orange">오렌지</span>
+    </div>
+  </body>
+</html>
