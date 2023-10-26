@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .naver:hover {
+        color: white;
+        background-color: red;
+      }
+      .google:active {
+        background-color: orange;
+      }
+
+      .box1:focus {
+        font-weight: bold;
+        background-color: pink;
+      }
+
+      .box2:active {
+        background-color: red;
+      }
+
+      button:active {
+        background-color: red;
+      }
+
+      /* hover: 마우스 커서 올리는 경우 */
+      /* active: 클릭하는 동안 */
+      /* focus: 요소가 선택되는 순간 (input) */
+    </style>
+  </head>
+  <body>
+    <!-- 가상클래스 -->
+
+    <a class="naver" href="https://www.naver.com" target="_blank"> NAVER </a>
+    <a class="google" href="https://www.google.com" target="_blank"> GOOGLE </a>
+    <div>박스 1 <input type="text" name="" id="" class="box1" /></div>
+    <div>박스 2 <input type="text" name="" id="" class="box2" /></div>
+    <button>선택하기</button>
+  </body>
+</html>

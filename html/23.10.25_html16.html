@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 의미 없는 요소를 만들지 않고 글만 추가가 가능!
+         */
+      /* 이모티콘, 이미지 다 가능 */
+      .box::before {
+        content: "앞에 콘텐츠 넣기! 🚉 ";
+        font-weight: bold;
+      }
+      .box::after {
+        content: url();
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">content!</div>
+  </body>
+</html>

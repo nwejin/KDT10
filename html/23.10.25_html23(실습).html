@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .orange {
+        background-color: orange;
+        width: auto;
+        height: 200px;
+      }
+      .html {
+        width: 200px;
+        height: 100px;
+        margin 0px 30px 0px;
+        background-color: skyblue;
+      }
+      .css {
+        display: inline-block;
+        width: 200px;
+        height: 100px;
+        margin-left: 230px;
+        margin-top: -20px;
+        background-color: green;
+      }
+      .JS {
+        display: inline-block;
+        width: 200px;
+        height: 100px;
+        margin-left: 230px;
+        margin-top: -80px;
+        background-color: red;
+      }
+      .dsd {
+        color: red;
+      }
+
+      .X_orange {
+        width: auto;
+        height: 200px;
+        background-color: orange;
+      }
+
+      .X_orange div:nth-child(n) {
+        display: inline-block;
+        width: 200px;
+        height: 100px;
+        margin-right: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="orange">
+      <div class="html">
+        HTML
+        <div class="css">
+          CSS
+          <div class="JS">
+            Javascript
+            <div class="dsd">dsd</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <div class="X_orange">
+      <div style="background-color: skyblue">HTML</div>
+      <div style="background-color: green">CSS</div>
+      <div style="background-color: red">Javascript</div>
+    </div>
+  </body>
+</html>

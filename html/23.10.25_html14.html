@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 형제중 첫번째면 선택 */
+      .fruits span:first-child {
+        color: red;
+      }
+      /* 마지막형제 요소 */
+      .fruits .ex:last-child {
+        color: blue;
+      }
+
+      /* n은 0부터 시작 */
+      /* n번째 형제 요소 */
+      .fruits *:nth-child(2n) {
+        color: yellow;
+      }
+      /* 형제 요소중 n번째 */
+      .fruits *:nth-child(2n + 1) {
+        background-color: pink;
+      }
+
+      /* 아닌거 선택 */
+      .fruits *:not(span) {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fruits">
+      <span class="ex">딸기</span>
+      <span class="ex">수박</span>
+      <div class="ex">
+        자식 오렌지
+        <div>하위 오렌지</div>
+      </div>
+      <p class="ex">망고</p>
+      <h3 class="ex">사과</h3>
+    </div>
+  </body>
+</html>
