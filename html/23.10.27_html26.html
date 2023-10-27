@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>border</title>
+    <style>
+      .all {
+        width: 200px;
+        height: 200px;
+        margin: 20px;
+        border-top: 10px ridge tan;
+        border-bottom: 5px dashed pink;
+        border-left: 3px solid blue;
+        border-right: 30px dotted darkgray;
+        border-radius: 0 100px 100px 50px;
+      }
+      .circle {
+        width: 100px;
+        height: 100px;
+        border: 5px solid black;
+        border-radius: 50%;
+      }
+
+      .content-box {
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+        border: 15px solid red;
+        background-color: orange;
+        box-sizing: content-box;
+      }
+      .border-box {
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+        border: 15px solid red;
+        background-color: orange;
+        box-sizing: border-box;
+        opacity: 0.7;
+      }
+
+      .square {
+        width: 100px;
+        height: 100px;
+        border: 1px solid;
+        display: inline-block;
+      }
+
+      .d-none {
+        /* 자리, 속성, 모습 다 사라짐 */
+        /* display: none; */
+        background-color: red;
+      }
+
+      .invisible {
+        /* 모습, 속성만 숨기고 자리는 남김*/
+        /* visibility: hidden; */
+        background-color: orangered;
+      }
+
+      .opacity-0 {
+        /* 투명도만 조절 / 속성, 자리 남음 */
+        /* opacity: 0; */
+        background-color: tomato;
+      }
+
+      .exam {
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+      }
+
+      /* .exam:hover {
+        display: none;
+        /* visibility: hidden; */
+        /* opacity: 0; */
+      } */
+    </style>
+  </head>
+  <body>
+    <!-- <div class="all"></div>
+    <div class="circle"></div>
+    <div class="content-box">content-box</div>
+    <br />
+    <div class="border-box">border-box</div>
+    <br />
+
+    <div class="square">original</div>
+    <div class="square d-none">d-none</div>
+    <div class="square invisible">invisible</div>
+    <div class="square opacity-0">opacity-0</div>
+    <div class="square">original</div>
+    <br />
+    <br />
+    <div class="exam"></div>
+    <br /> -->
+    <!-- overflow -->
+    <div class="square" style="overflow: scroll">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+      voluptatibus nemo minima distinctio quibusdam voluptates id, vero
+      voluptate unde adipisci aliquam nostrum consequatur accusantium vitae
+      suscipit illo. Inventore, obcaecati reprehenderit? Laboriosam veniam
+      doloremque soluta illum accusantium atque nam dicta fugit? Autem
+      dignissimos voluptates ut, maiores, ratione labore earum vero, minima
+      temporibus tempore nobis saepe laudantium? Animi, impedit aut. Aut, quasi?
+    </div>
+
+    <div class="square" style="overflow: hidden">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus
+      minus repellat dicta molestiae facere quis enim quibusdam eum autem
+      laborum reiciendis aliquid, soluta pariatur odio esse inventore veniam
+      perferendis aspernatur.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>width & height</title>
+    <!-- display: inline-block -->
+    <!-- 블록 요소 (div)를 인라인 요소로 바꿔서 디자인이 용이하게 만들어줌 -->
+    <style>
+      .class1 {
+        width: 100px;
+        height: 100px;
+        background-color: aquamarine;
+      }
+
+      .class2 {
+        width: 100vw;
+        /* @@vw: @@viewwidth : 화면 @@% 가로 채워지게 */
+        /* @@vh: @@viewheight : 화면 @@% 세로 채워지게 */
+        height: 100px;
+        background-color: navy;
+      }
+
+      .class3 {
+        width: calc(30vw - 100px);
+        height: 30vw;
+        max-width: 300px;
+        min-width: 200px;
+        background-color: orange;
+        line-height: calc(30vw - 100px);
+      }
+    </style>
+  </head>
+  <body style="margin: 0">
+    <div class="class1"></div>
+    <div class="class2"></div>
+    <div class="class3">KDT</div>
+  </body>
+</html>
