@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container1 {
+        display: flex;
+        flex-direction: row;
+        width: 500px;
+        height: 500px;
+        background-color: blue;
+      }
+
+      .container1 div {
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+      }
+      .container2 {
+        display: flex;
+        flex-direction: row-reverse;
+        width: 500px;
+        height: 500px;
+        background-color: blue;
+      }
+
+      .container2 div {
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+      }
+      .container3 {
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+        height: 500px;
+        background-color: blue;
+      }
+
+      .container3 div {
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container1">
+      <div style="background-color: pink">item 1</div>
+      <div style="background-color: coral">item 2</div>
+      <div style="background-color: tomato">item 3</div>
+    </div>
+    <br />
+    <div class="container2">
+      <div style="background-color: pink">item 1</div>
+      <div style="background-color: coral">item 2</div>
+      <div style="background-color: tomato">item 3</div>
+    </div>
+    <br />
+    <div class="container3">
+      <div style="background-color: pink">item 1</div>
+      <div style="background-color: coral">item 2</div>
+      <div style="background-color: tomato">item 3</div>
+    </div>
+  </body>
+</html>

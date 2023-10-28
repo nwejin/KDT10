@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 500px;
+        height: 500px;
+        border: 3px solid black;
+        position: relative;
+        padding: 0;
+      }
+      .container div {
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+      }
+
+      .none {
+        background-color: red;
+      }
+
+      .item1 {
+        background-color: orange;
+        position: relative;
+        /* 자기 자신 위치 기준 */
+        top: 30px;
+        left: 50px;
+      }
+
+      .item2 {
+        background-color: yellow;
+        position: absolute;
+        /* 부모 위치 기준 */
+        right: 30px;
+        bottom: 100px;
+      }
+
+      .item3 {
+        background-color: green;
+        position: fixed;
+        /* 고정위치  */
+        right: 100px;
+        top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="none"></div>
+      <div class="item1">item1</div>
+      <div class="item2">item2</div>
+      <div class="item3">item3</div>
+    </div>
+  </body>
+</html>

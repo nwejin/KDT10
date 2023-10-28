@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        /* 한줄: nowrap */
+        /* 줄바꿈 (크기유지) warp */
+        justify-content: center;
+        /* flex-start
+        flex-end
+        center
+        space-between
+        space-around
+        space-evenly */
+        align-items: flex-end;
+        width: 500px;
+        height: 500px;
+        background-color: bisque;
+      }
+      .container div {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        padding: 0;
+      }
+
+      .container div:nth-child(2n + 1) {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        border: 1px solid black;
+        padding: 0;
+      }
+
+      .container1 {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #0000ff;
+        justify-content: center;
+        /* align-items: 한줄 정렬 */
+        align-items: flex-start;
+        /* align-content : 여러줄 정렬 (전체요소를 하나의 뭉탱이로 인식해서 이동 (2줄이상)*/
+        align-content: flex-end;
+
+        width: 500px;
+        height: 400px;
+      }
+      .item3 {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+      }
+
+      .item4 {
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+      }
+
+      .item5 {
+        width: 100px;
+        height: 100px;
+        background-color: brown;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+    </div>
+    <hr />
+    <div class="container1">
+      <div class="item3"></div>
+      <div class="item4"></div>
+      <div class="item5"></div>
+      <div class="item3"></div>
+      <div class="item4"></div>
+      <div class="item5"></div>
+    </div>
+  </body>
+</html>

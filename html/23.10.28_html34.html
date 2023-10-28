@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        /* 기본값은 row */
+        background-color: navy;
+        width: 500px;
+        height: 300px;
+      }
+
+      .container div {
+        width: 100px;
+        height: 100px;
+      }
+      .item1 {
+        background-color: red;
+      }
+      .item2 {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- display: flex; -> 부모요소한테 해당 속성을 주면
+    모든 자식 요소가 display: inline-block같은 효과가 있다.
+     -->
+
+    <div class="container">
+      <div class="item1"></div>
+      <div class="item2"></div>
+      <div class="item1"></div>
+      <div class="item2"></div>
+      <div class="item1"></div>
+      <div class="item2"></div>
+    </div>
+  </body>
+</html>
