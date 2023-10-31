@@ -170,13 +170,18 @@ section .city .city_img {
 }
 @keyframes cloud_2 {
   0% {
+    opacity: 0;
+    opacity: 0.5;
+    opacity: 1;
     left: 700px;
   }
   25% {
     left: 0px;
+    visibility: hidden;
     opacity: 1;
     opacity: 0.5;
     opacity: 0;
+    visibility: hidden;
   }
   50% {
     opacity: 0;
@@ -185,10 +190,10 @@ section .city .city_img {
     left: 700px;
   }
   75% {
+    left: 0px;
     opacity: 1;
     opacity: 0.5;
     opacity: 0;
-    left: 0px;
   }
   100% {
     opacity: 0;

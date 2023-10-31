@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>variable</title>
+    <script>
+      /* 자료형
+            - 기본
+                - string => ;
+                - number
+                - boolean
+                - null
+                - undefined
+            - 객체
+                - array (배열)
+                - object
+        */
+
+      // 1. string (문자열)
+      let myName = "길동";
+      var email = "gildong@naver.com";
+      let city = "서울";
+
+      console.log(myName);
+      console.log(email);
+      console.log(city);
+
+      console.log("홍", myName);
+      //   , 는 한칸씩 띄워져서 나옴
+      console.log(email + "이메일");
+      //   + 는 다 붙어서 나옴
+      console.log(`당신의 고향은 어디인가? : ${city}이다`);
+      // 백틱 문자 : `` 사용 (문자와 변수 한번에 입력)
+
+      let gildong = `당신의 고향은 어디인가? : ${city}이다`;
+      console.log(gildong);
+
+      // 2. number
+      let number = 123;
+      let opacity = 0.7;
+
+      console.log(number);
+      console.log(opacity);
+      console.log(number * opacity);
+      // NaN: not a number (ex) 문자열 - 숫자열
+      console.log("apple" - 3); // NaN
+      console.log("123" - 3); // console.log에서 자체 변환을 해서 120
+
+      // 3. boolean (참 true / 거짓 false)
+      let checked = true;
+      let isShow = false;
+
+      console.log(checked);
+      console.log(isShow);
+
+      // 4. undefined (미할당 / 미정의 - var, let)
+      //   let undef;
+      //   lef obj = {
+      //     abc: 123,
+      //   };
+
+      //   console.log(undef);
+      //   console.log(obj.abc);
+      //   console.log(obj.efg);
+
+      // 5. null (의도된 빈 값)
+      let empty = null;
+      console.log(empty);
+
+      // 6. Array (배열) -> [] = 배열이다.
+      let fruits = ["orange", "pineapple", "Apple", "Banana"];
+
+      console.log(fruits);
+
+      let data = [1, "최진", false, null, undefined];
+
+      console.log(data);
+      console.log(data[0], data[3]);
+
+      // 2차원 배열 : [ [], [], [] ] : 배열 안에 배열
+
+      // 배열 함수
+      fruits.push("lemon"); // 맨 뒤에 값 추가
+      console.log(fruits);
+
+      fruits.pop(); // 맨 뒤 값 제거
+      console.log(fruits);
+
+      fruits.unshift("orange"); // 맨 앞에 값 추가
+      console.log(fruits);
+
+      fruits.shift(); // 맨 앞 값 제거
+      console.log(fruits);
+
+      console.log(fruits.indexOf("orange")); // 넣은 값의 index 반환
+
+      console.log(fruits.includes("orange")); // 넣은 값이 배열안에 있으면 true 반환
+      console.log(fruits.includes("peach")); // 넣은 값이 배열안에 있으면 true 반환
+
+      // 실습
+
+      let prac1 = "실습";
+      console.log(`아래는 Javascript 1번 ${prac1} 입니다.`);
+
+      let color = [
+        "blue",
+        "yellow",
+        "pink",
+        "black",
+        "white",
+        "orange",
+        "green",
+      ];
+
+      console.log("index 2: ", color[2]);
+
+      color.push("navy");
+      console.log(color);
+
+      console.log(color.indexOf("black"));
+
+      color.reverse(); //배열을 거꾸로 뒤집음
+      console.log("reverse 적용:", color);
+
+      // 7. Object = {}
+      let dog = {
+        name: "청군이",
+        age: 12,
+        isCute: true,
+        // 함수도 객체(object)안에 넣을 수 있음
+        mew: function () {
+          return "멍멍";
+        },
+      };
+
+      console.log(dog);
+      console.log(dog.name);
+      console.log(dog.age);
+
+      // 실습
+      console.log(`아래는 Javascript 2번 ${prac1} 입니다.`);
+
+      let chlwls = {
+        name: "최진",
+        age: 27,
+        mbti: "enfp",
+      };
+
+      console.log("이름:", chlwls.name);
+      console.log("나이:", chlwls.age);
+      console.log("mbti:", chlwls.mbti);
+
+      // 8. typeof : 어떤 자료형인지 알려줌
+      console.log(typeof chlwls.name);
+      console.log(typeof chlwls.age);
+      console.log(typeof true);
+      console.log(typeof chlwls);
+      console.log(typeof color); // array, null에 typeof 사용 시 object 형태 (typeof {}) 출력
+
+      // 실습
+      console.log(`아래는 Javascript 3번 ${prac1} 입니다.`);
+      console.log(`${typeof chlwls.age} isn't ${typeof chlwls.name} data type`);
+      console.log(
+        `Typeof를 boolean이나 null에 사용하면, ${typeof {}} 결과를 얻을 수 있습니다.`
+      );
+      console.log(
+        `Typeof를 boolean이나 null에 사용하면, ${typeof true} 결과를 얻을 수 있습니다.`
+      );
+
+      // 형 변환
+      // 문자형변환
+
+      // let mathScore = prompt("수학 점수를 입력 하세요");
+      //  //prompt: 알람창을 하나 띄워서 값을 입력 받음 (문자열로 입력 받음)
+      // let engScore = prompt("영어 점수를 입력 하세요");
+
+      // let avg = (mathScore + engScore) / 2;
+
+      // console.log(avg);
+
+      // String() -> null, undefined 가능
+      // .tostring(); -> unll, undefined 불가능
+
+      let str1 = true;
+      let str2 = 123;
+      // let str3 = null.toString(); //.을 찍는다 : toString이라는 값을 가지고 있다.
+
+      console.log(typeof String(str1));
+      console.log(typeof String(str2));
+      // console.log(typeof str3); //
+
+      let num1 = true; // 숫자로는 1
+      let num2 = false; // 숫자로는 2
+      let num3 = 123;
+      let num4 = "ABC"; // 문자는 NaN
+
+      console.log(typeof Number(num1));
+      console.log(typeof Number(num2));
+      console.log(typeof Number(num3));
+
+      console.log(Number(num1));
+      console.log(Number(num2));
+      console.log(Number(num3));
+      console.log(Number(num4));
+
+      // 실습
+      console.log(`아래는 Javascript 4번 ${prac1} 입니다.`);
+
+      // let mathScore = prompt("수학 점수를 입력해주세요");
+      // let engScore = prompt("영어 점수를 입력 해 주세요");
+      // let avg = (Number(mathScore) + Number(engScore)) / 2;
+
+      // console.log(avg);
+
+      let mathScore = 77;
+      let engScore = 88;
+      let avgScore = Number(mathScore + Number(engScore)) / 2;
+
+      console.log(avgScore);
+
+      /* 연산자 
+      나머지 : 3 % 2 == 1 (홀수) / 2 % 2 == 0 (짝수)
+      거듭 제곱 : **
+
+      연산자 줄여서 쓰기 : ( = )
+
+      증가 / 감소 : ++ / --
+      앞 ++ 할당할때 반영 O / 뒤 ++ 할당할때 반영 X
+
+      비교 연산자 
+      일치 연산자 : === (=3개)
+      == (=2개) : 값만 비교
+      === (=3개) : 값 + 자료형 까지 비교 // 값 & string 인지 등..
+
+      논리 연산자 
+      or : ||
+      and : &&
+      not : ! / !false = true / !true = false
+
+      */
+
+      // 함수 { 스코프 } - 스코프 내에서 변수 선언시 다른 곳에서 변수 사용 불가
+      // 함수는 선언 하고 호출한다!
+
+      // 호출을 해야 실행 가능
+      // 함수 선언문은 어디 있더라도 호출이 가능 (호이스팅 hoisting)
+      // 함수 표현식은 해당 코드에 도달해야 생성 및 사용
+    </script>
+  </head>
+  <body></body>
+</html>
