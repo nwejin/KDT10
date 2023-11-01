@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /*
+              if(조건1) {
+                  //조건 1이 참일때 실행 코드
+              } elseif(조건 2) {
+                  //조건 2가 있다면 작성, 조건 2가 참일 때 실행할 코드
+              } elseif(조건 3) {
+                  //조건 3가 있다면 작성, 조건 3가 참일 때 실행할 코드
+              ) else {
+                  //위 모든 조건들이 거짓일 때 실행 코드
+              }
+
+          */
+
+      if (3 > 5) {
+        console.log("true");
+      } else {
+        console.log("false");
+      }
+
+      let name = "Lee";
+
+      if (name == "kim") {
+        console.log("no");
+      } else if ((name = "Lee")) {
+        console.log("noo");
+      } else {
+        console.log("nooo");
+      }
+
+      //실습 4
+      //   let age = prompt("나이를 입력해주세요");
+      //   age = Number(age);
+
+      //   if (Number(age) >= 20) {
+      //     console.log("성인");
+      //   } else if (Number(age) >= 17) {
+      //     console.log("고등학생");
+      //   } else if (Number(age) >= 14) {
+      //     console.log("중학생");
+      //   } else if (Number(age) >= 8) {
+      //     console.log("초등학생");
+      //   } else {
+      //     console.log("유아");
+      //   }
+
+      //실습 5
+
+      //   let age = prompt("나이를 입력해주세요");
+      //   age = Number(age);
+      //   let gender = prompt("성별을 입력해주세요");
+
+      //   if (Number(age) >= 20) {
+      //     console.log("성인 " + gender);
+      //   } else if (Number(age) >= 17) {
+      //     if (gender == "남") {
+      //       console.log("고등 남학생");
+      //     } else if (gender == "여") {
+      //       console.log("고등 여학생");
+      //     } else console.log("고등학생 " + gender);
+      //   } else if (Number(age) >= 14) {
+      //     if (gender == "남") {
+      //       console.log("중등 남학생");
+      //     } else if (gender == "여") {
+      //       console.log("중등 여학생");
+      //     } else console.log("중학생 " + gender);
+      //   } else if (Number(age) >= 8) {
+      //     if (gender == "남") {
+      //       console.log("초등 남학생");
+      //     } else if (gender == "여") {
+      //       console.log("초등 여학생");
+      //     } else console.log("초등학생 " + gender);
+      //   } else {
+      //     console.log("유아 " + gender);
+      //   }
+
+      // switch 문
+      /*
+            switch (변수) {
+                case 값1:
+                //변수 == 값 1일때 실행할 코드
+                    break;
+                    // break문을 만나면 switch 빠져나오기
+                case 값2:
+                    break;
+                ...
+                default:
+                    // 기본적으로 실행하는 코드
+                    braek;
+            }
+            */
+
+      switch (name) {
+        case "kim":
+          console.log("name은 kim입니다.");
+          break;
+        case "Lee":
+          console.log("name은 Lee입니다.");
+          break;
+        default:
+          console.log("Kim도 Lee도 아닙니다.");
+      }
+
+      // 3항 연산자
+      // 조건식 ? 조건이 참 : 조건이 거짓;
+      if (name == "Lee") {
+        console.log("name == Lee");
+      } else {
+        console.log("name != Lee");
+      }
+      name == "Lee" ? console.log("name == Lee") : console.log("name != Lee");
+      name == "kim"
+        ? console.log("name == Kim")
+        : name == "Lee"
+        ? console.log("name != Kim && name == Lee")
+        : console.log("name != kim && name != Lee");
+
+      // 실습 6
+
+      let now = new Date().getHours(); // 시간을 받아오는 코드
+      console.log(now);
+      now >= 12 ? console.log("오후") : console.log("오전");
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // for
+      // for(1..초기화식; 2.조건식; 4. 증감식) {3.실행문장;}
+
+      for (let i = 0; i < 10; i++) {
+        // 초기화: i를 0으로 설정
+        // 조건식: i가 10보다 작을때
+        // 증감식: i를 1씩 증가
+        console.log("i:", i);
+      } // i : 0~9
+
+      //   for (let i = 0; i < 10; i++) {
+      //     console.log(i);
+      //   }
+
+      // for (let index = 0; index < 10; index++) {
+      //   console.log(`${index + 1}번째 인사를 드립니다. 😀 `);
+      // }
+
+      //실습 7
+
+      // 방법 1
+      // for (let i = 0; i <= 10000; i = i + 13) {
+      //   if (i % 2 == 1) {
+      //     console.log(i);
+      //   }
+      // }
+
+      // 방법 2
+      //   for (let i = 0; i <= 10000; i++) {
+      //     if (i % 13 == 0 && i % 2 == 1) {
+      //       console.log(i);
+      //     }
+      //   }
+
+      //   let i = prompt("숫자를 입력하세요");
+      //   Number(i);
+      //   console.log(i);
+
+      //   i % 13 == 0 && i % 2 == 1;
+      //   for (//10000까지 숫자 부르기
+
+      //   &&
+
+      //   let numberi = prompt("숫자를 입력하세요");
+      //   Number(numberi);
+      //   console.log(numberi);
+
+      //실습 8 - 구구단
+      for (let i = 2; i < 10; i++) {
+        console.log(i + "단");
+        for (let j = 1; j < 10; j++) {
+          console.log(`${i} x ${j} = ${i * j}`);
+        }
+      }
+
+      // while문
+
+      let index = 0;
+
+      while (index < 3) {
+        console.log(`인사를 ${index + 1}번째 드립니다!`);
+        index++;
+      }
+
+      let index2 = 0;
+
+      while (true) {
+        console.log(`인사를 ${index2 + 1}번째 드립니다.`);
+        index2++;
+        if (index2 >= 3) {
+          break;
+        }
+      }
+
+      // while 구구단
+      //   let i = 2,
+      //     j = 1;
+      //   while (i < 10) {
+      //     while (j < 10) {
+      //       console.log(`${i} X ${j} = ${i * j}`);
+      //       j++;
+      //     }
+      //     i++;
+      //     j = 1;
+      //   }
+
+      // break문
+      for (let i = 0; i < 10; i++) {
+        if (i == 5) {
+          console.log("멈춰!");
+          break;
+        }
+        console.log(i);
+      }
+
+      // continue문 (한번만 멈추고 다음으로 진행)
+      for (let i = 0; i < 7; i++) {
+        if (i == 5) {
+          console.log("10 건너뛰기!");
+          continue;
+        }
+        // i == 10일때는 continue 아래 코드는 실행 X
+        console.log(i);
+      }
+
+      // 실습 9
+      let n = prompt("숫자를 입력하세요");
+      n = Number(n);
+
+      let sum = 0;
+
+      for (let i = 0; i < n; i++) {
+        if (n <= 0 && n >= 100) alert("다시 입력해");
+        else {
+          if (i % 2 == 0 || i % 3 == 0) sum += i;
+        }
+        continue;
+      }
+      console.log("sum : ", sum);
+
+      // let sum2 = 0;
+      // let i = 0;
+      // while (i < n) {
+      //   if (i % 2 == 0 || i % 3 == 0) sum2 += i;
+      //   i++;
+      // }
+
+      // 객체 배열 함수 공부...
+    </script>
+  </head>
+  <body></body>
+</html>
