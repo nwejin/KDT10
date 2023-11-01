@@ -117,8 +117,10 @@
       let sum = 0;
 
       for (let i = 0; i < n; i++) {
-        if (n <= 0 && n >= 100) alert("다시 입력해");
-        else {
+        if (n <= 0 || n >= 100) {
+          alert("다시 입력해");
+          break;
+        } else {
           if (i % 2 == 0 || i % 3 == 0) sum += i;
         }
         continue;
