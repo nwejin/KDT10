@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let fruits = ["apple", "banana", "orange", "melon", "grape"];
+
+      console.log("for basic");
+
+      for (i = 0; i < fruits.length; i++) {
+        console.log(fruits[i]);
+      }
+
+      console.log("for of");
+      for (let fruit of fruits) {
+        //앞에는 원하는 이름, of 뒤에는 사용할 배열 이름
+        console.log(fruit);
+      }
+
+      console.log("forEach");
+      fruits.forEach((fruit, index, arr) => {
+        console.log("fruit: ", fruit);
+        console.log("index: ", index);
+        console.log("Array: ", arr);
+      });
+
+      console.log("forEach");
+      fruits.forEach((fruit) => {
+        console.log("fruit: ", fruit);
+      });
+
+      //filter
+      console.log("filter");
+      let filterResult = fruits.filter((fruit) => {
+        return fruit.includes("p"); // return의 반환 값을 filterResult에 담겠다.
+      });
+
+      console.log("filterResult :", filterResult);
+
+      let filterResult2 = fruits.filter((fruit) => fruit.includes("p"));
+      console.log(filterResult2);
+      // return의 반환 값을 filterResult에 담겠다.
+
+      // 실습 1
+      // 배열 만들기
+      let num = []; // Array 만들기
+      let sum1 = 0;
+      let sum2 = 0;
+      let sum3 = 0;
+
+      for (let i = 1; i <= 100; i++) {
+        num.push(i); // for문을 Arry에 넣음
+      }
+      console.log(num);
+
+      //  for문 합
+      for (let i = 0; i < num.length; i++) {
+        sum1 = sum1 + num[i]; // sum1 += i; sum1 = sum1 + i;
+        // sum1 += i;
+      }
+      console.log("for 문 합:", sum1);
+
+      // for of문 합
+      for (let number of num) {
+        sum2 = sum2 + number;
+      }
+      console.log("for of문 합:", sum2);
+
+      // for each문 합
+      num.forEach((number) => {
+        sum3 = sum3 + number;
+      });
+      console.log("for each문 합:", sum3);
+
+      // 실습 2
+      let same = [];
+      let diff = [];
+
+      let fruits1 = [
+        "사과",
+        "딸기",
+        "파인애플",
+        "수박",
+        "참외",
+        "오렌지",
+        "자두",
+        "망고",
+      ];
+
+      let fruits2 = ["수박", "사과", "참외", "오렌지", "파인애플", "망고"];
+
+      for (let i = 0; i < fruits1.length; i++) {
+        // 문자열 길이만큼 반환
+        if (fruits2.includes(fruits1[i])) {
+          same.push(fruits1[i]);
+        } else {
+          diff.push(fruits1[i]);
+        }
+      }
+
+      console.log(same);
+      console.log(diff);
+
+      // 1. 동일한 요소를 뽑고, same 배열 만들어
+
+      // 2. 다른 요소 뽑고, diff 만들어
+    </script>
+  </head>
+  <body></body>
+</html>

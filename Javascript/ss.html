@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function solution(n) {
+        // n받기
+        var answer = 0;
+
+        var ansarr = n.string().split("");
+
+        for (i = 0; i < numArr.length; i++) {
+          answer += Number(ansarr[i]);
+        }
+
+        // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
+        // console.log("Hello Javascript");
+
+        // n을 다 쪼갬
+        // 쪼갠 숫자들을 그대로 더함
+
+        //     return answer; // 출력
+      }
+
+      function solution(n) {
+        // n받기
+        let answer = 0;
+
+        let ansarr = String(n).split("");
+
+        // forEach
+        ansarr.forEach((a) => (answer += Number(a)));
+
+        //for
+        for (let i = 0; i < ansarr.length; i++) {
+          answer += Number([ansarr[i]]);
+        }
+
+        // 숫자 계산b
+        while (n >= 10) {
+          answer += n % 10; // 일의 자리
+          n = parseInt(n / 10); // parseInt: 숫자로 바꾼 값에서 정수 값만 (123.3 -> 123)
+        }
+        answer += n;
+
+        // 숫자 -> 문자열 string
+
+        // 배열은 for문 사용을 위해..
+
+        // n을 다 쪼갬
+        // 쪼갠 숫자들을 그대로 더함
+
+        return answer; // 출력b
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
