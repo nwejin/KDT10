@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 다른 노드 접근하기</title>
+  </head>
+  <body>
+    <div id="container">
+      <div class="box" id="green">1</div>
+      previous 테스트
+      <!-- 주석 previous 테스트 -->
+
+      <div class="box" id="red">2</div>
+      next 테스트
+
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+    </div>
+    <button onclick="getParent()">getParent</button>
+    <button onclick="pElSibling()">pElSibling</button>
+    <button onclick="pNoSibling()">pNoSibling</button>
+    <button onclick="pNoSibling()">nElSibling</button>
+    <button onclick="pNoSibling()">nNoSibling</button>
+
+    <script>
+      let container = document.getElementById("container");
+      let greenBox = document.getElementById("green");
+      let redBox = document.getElementById("red");
+
+      console.log("children: ", container.children); // 자식요소를 가져온다.
+
+      function getParent() {
+        console.log(greenBox.parentNode);
+      } // 부모요소를 가져온다.
+
+      function pElSibling() {
+        console.log(redBox.previousElementSibling);
+      } //이전 형제 요소를 가져온다. (엘레멘트 기준으로 출력)
+
+      function pNoSibling() {
+        console.log(redBox.previousSibling);
+      } // 이전 형제 요소 (엘레멘트 + 텍스트 포함 전체 요소) // 주석 또 포함
+
+      function nElSibling() {
+        console.log(redBox.nextElementSibling);
+      } //다음 형제 요소를 가져온다. (엘레멘트 기준으로 출력)
+
+      function nNoSibling() {
+        console.log(redBox.nextSibling);
+      } // 다음 형제 요소 (엘레멘트 + 텍스트 포함 전체 요소) // 주석 또 포함
+    </script>
+  </body>
+</html>

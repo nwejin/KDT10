@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>표준 내장 객체</title>
+    <script>
+      let name = "최진";
+      console.log(name);
+      // 표준 내장 객체
+      // Js가 기본적으로 가지고 있는 객체
+
+      // 1.Date 객체
+      let now = new Date();
+      console.log(now);
+      // new로 now가 Date 객체로 변경되었기에 내장 함수 사용 가능
+      console.log(now.getFullYear(), "년");
+      console.log(now.getMonth() + 1, "월"); // 컴퓨터 숫자로 0~11 이기에 +1
+      console.log(now.getDate(), "일");
+
+      console.log(now.getHours(), "시");
+      console.log(now.getMinutes(), "분");
+      console.log(now.getSeconds(), "초");
+      console.log(now.getMilliseconds());
+      console.log(now.getDay()); // 0: 일요일 ~ 6: 토요일
+
+      console.log(now.getDay());
+
+      // 주말 평일 구하기
+
+      // switch문
+      switch (now.getDay()) {
+        case 0:
+        case 6:
+          console.log("주말");
+          break; // swith 문은 break를 기준으로...!
+        default:
+          console.log("평일");
+          break;
+      }
+
+      //삼항 연산자
+      now.getDay() == 0 || now.getDay() == 6
+        ? console.log("주말")
+        : console.log("평일");
+
+      // 2. Math 객체
+      console.log(Math.PI);
+      console.log(Math.E);
+      console.log(Math.SQRT2); // 루트2
+
+      // method
+      console.log(Math.min(45, 2, -2, -10)); // 가장 작은 수
+      console.log(Math.max(45, 3, 10, -10, 100)); // 가장 큰수
+      console.log(Math.random()); // 0 <= X <= 1 소수점 랜덤 값
+      console.log(Math.round(3.5)); // 반올림
+      console.log(Math.floor(3.5)); // 반내림
+      console.log(Math.ceil(3.3)); // 올림
+
+      // .toFixed
+
+      // 1 <= X < 101
+      console.log(Math.floor(Math.random() * 100) + 1);
+      // 기본이 0에서 1이니까, 제일 작은수 + 1, 제일 큰수 + 100
+    </script>
+  </head>
+  <body>
+    <!--      
+    object - method -->
+
+    <!-- 가져온다: getter 
+    -->
+    <!-- DOM -->
+    <!-- API: 명령어 집합체 -->
+    <!-- getElementsBy: s가 붙으면 동일한 값을 가지는걸 다 부르겠다. 
+    id는 하나만 있으니까 id속성값 제외-->
+    <!-- queryselector(CSS선택자) -->
+  </body>
+</html>
