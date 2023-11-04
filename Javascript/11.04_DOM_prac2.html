@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 실습 2</title>
+    <style></style>
+  </head>
+
+  <body>
+    <div>방명록입니다.</div>
+    <br />
+    <strong>작성자 </strong> <input type="text" name="" id="name" />
+    <br />
+    <strong>내용 </strong> <input type="text" name="" id="doc" />
+    <br />
+    <br />
+    <button onclick="output()">작성</button>
+    <br />
+    <br />
+    <table
+      id="table"
+      sellspacing="5px;"
+      cellpadding="1px;"
+      border="1px"
+      style="width: 500px; height: 50px"
+    >
+      <tr id="newTable">
+        <th id="num">번호</th>
+        <th id="name1">작성자</th>
+        <th id="content" style="width: 200px">내용</th>
+        <th id="date">작성일</th>
+      </tr>
+      <!-- <tr id="newTable">
+        <td id="num"></td>
+        <td id="name"></td>
+        <td id="word"></td>
+        <td id="time"></td>
+      </tr> -->
+    </table>
+
+    <script>
+      // 작성자에 이름 넣고 내용에 이름 넣고 작성 누르면 아래 테이블에 데이터 추가
+      //작성자를 td 작성자에 넣고
+      // 내용을 td 내용에 넣고 // td 생성
+      // 작성일은 date로 시간 입력
+
+      // 전역 변수로 cnt 만들어서 번호 추가하기 // 어디서든 script태그 안에서는 사용이 가능한 변수 (전역변수)
+      let cnt = 1;
+
+      function output() {
+        let name = document.getElementById("name").value;
+        let content = document.getElementById("doc").value;
+
+        // 요소 선택 및 가져오기
+
+        // 테이블 추가
+        // table - tr추가 - tr선택 - td추가
+        // 여러개는 거꾸로 추가해주면 된다.
+        // ex) td 만들기 > td를 tr에 추가 > (tr>td) > 이 tr을 통쨰로 table에 추가
+        let newData = document.getElementById("newTable");
+
+        // td 4개 - 번호 작성자 내용 작성일 / tr 1개
+
+        let tr = document.createElement("tr");
+        // td 4개 td안에 내용 값 채우고 tr에 td를 자식 요소로 추가 tr을 table에 자식 요소로 추가
+        let td1 = document.createElement("td"); // 번호
+        let td2 = document.createElement("td"); // 작성자
+        let td3 = document.createElement("td"); // 내용
+        let td4 = document.createElement("td"); // 작성 시간
+        // td4개 생성
+        console.log(td1, td2, td3, td4);
+
+        // td안에 내용 채우기
+        // 번호
+        td1.innerText = cnt;
+        cnt++; //cnt 증가
+
+        // 작성자
+        td2.innerText = name;
+
+        //내용
+        td3.innerText = content;
+
+        //작성일
+        let date = new Date();
+        td4.innerText =
+          date.getFullYear() +
+          "-" +
+          (date.getMonth() + 1) +
+          "-" +
+          date.getDate() +
+          date.getHours();
+
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tr.appendChild(td4);
+
+        table.appendChild(tr);
+
+        // 입력값 초기화
+        let name1 = document.getElementById("name");
+        let content1 = document.getElementById("doc");
+
+        name1.value = "";
+        content1.value = "";
+
+        let inputs = document.querySelectorAll("input");
+        console.log(inputs);
+
+        for (let i = 0; i > inputs.length; i++) {
+          console.log(inputs[i]);
+          // name1, content1로 만든 요소와 동일한 것
+          inputs[i].value = "";
+        }
+
+        // let num = 0;
+        // // 하나가 추가될때마다 숫자 1
+        // for (i = 1; i <= 1000; i++) {
+        //   num.value += i;
+        // }
+        // td1.value = num;
+
+        // let result2 = name;
+        // td2.value = result2;
+
+        // let result3 = content;
+        // td3.value = content;
+
+        // let result4 = new Date();
+        // td4.value = new Date();
+
+        // console.log(num, result2, result3, result4);
+        // td 연결 완료
+
+        // tr에 넣기
+
+        // 데이터를 넣고 tr에 td를 하나씩 넣기.
+
+        // tr.appendChild(td1, td2, td3, td4);
+
+        // table.appendChild(tr);
+
+        // console.log(newData);
+
+        // ->
+        // 테이블에 값 추가
+        // 새로운 테이블 생성
+
+        // let newName = document.createElement("td");
+        // console.log(newName);
+        // td 만들기
+        // td를 tr로 넣기
+        // newtable의 형제로 tr을 만들고 자식 td 4개 추가
+        // 만든 테이블에 데이터 추가
+
+        //tr의 형제 tr 추가 -> tr의 자식 td 추가
+
+        // tr - td
+        // tr을 잡고 그 자식 요소 td를 추가...
+      }
+    </script>
+  </body>
+</html>

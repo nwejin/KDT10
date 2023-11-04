@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      let str = " Happy day~! ";
+      //   console.log(str.length);
+      console.log(str.split(""));
+
+      console.log(str.split("").push("hi"));
+
+      let jin = "CHOI JIN";
+      jinarr = jin.split("");
+      console.log(jinarr);
+
+      let jinreverse = jinarr.reverse();
+      console.log(jinreverse);
+
+      let jinagain = jinreverse.join("");
+      console.log(jinagain);
+
+      console.log(jin.split("").reverse().join(""));
+
+      let numbers = [1, 2, 3, 4, 5, 6];
+      let colors = ["red", "pink", "blue", "green", "white"];
+
+      //   for (let i = 0; i < numbers.length; i++) {
+      //     console.log(numbers[i]);
+      //   }
+      //   for (let i = 0; i < colors.length; i++) {
+      //     console.log(colors[i]);
+      //   }
+
+      let numbersLength = numbers.length;
+      let colorLength = colors.length;
+
+      for (let number of numbers) {
+        console.log(number);
+      }
+
+      for (let color of colors) {
+        console.log(color);
+      }
+
+      let number2 = [1, 2, 3, 4, 5, 6];
+      let sum1 = 0;
+      let sum2 = 0;
+      let sum3 = 0;
+
+      for (let i = 0; i < number2.length; i++) {
+        console.log(number2[i]);
+        sum1 = sum1 + number2[i];
+      }
+      for (let num of number2) {
+        sum2 = sum2 + num;
+      }
+
+      numbers.forEach((num) => {
+        sum3 = sum3 + num;
+      });
+
+      console.log(sum2, sum2, sum3);
+
+      let number3 = [1, 2, 3, 4, 5, 6];
+      let arr;
+
+      arr = number3.filter(function (num) {
+        return num > 3;
+      });
+      console.log(arr);
+
+      // 실습
+      let arrprac = [];
+      let sumA = 0;
+      let sumB = 0;
+      let sumC = 0;
+
+      for (let i = 1; i <= 100; i++) {
+        arrprac.push(i);
+      }
+      // 배열 만들기
+      console.log(arrprac);
+
+      for (let i = 0; i <= arrprac.length; i++) {
+        sumA += i;
+      }
+      console.log("for 합:", sumA);
+
+      for (let num of arrprac) {
+        sumB += num;
+      }
+      console.log("for of합", sumB);
+
+      arrprac.forEach((num) => {
+        sumC += num;
+      });
+
+      console.log("forEach합", sumC);
+    </script>
+  </head>
+  <body></body>
+</html>
