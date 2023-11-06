@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQueryPractice1</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function img1() {
+        $("#img").attr(
+          "src",
+          "https://img.khan.co.kr/news/2023/09/27/l_2023092801001014200092871.jpg"
+        );
+      }
+
+      function img2() {
+        $("#img").attr(
+          "src",
+          "https://cdn.healthinnews.co.kr/news/photo/202307/39252_40878_352.jpg"
+        );
+      }
+      function img3() {
+        $("#img").attr(
+          "src",
+          "https://img.segye.com/content/image/2017/08/30/20170830515039.jpg"
+        );
+      }
+      function img4() {
+        $("#img").attr(
+          "src",
+          "https://img.hankyung.com/photo/202207/BD.30664440.1.jpg"
+        );
+      }
+
+      //매개변수로 하나의 함수를 활용해서 가능
+      //   function changeImg(name) {
+      //     name = apple, banana, grape, peach
+      //     $('img').attr('src',`경로 단 이름과 동일하게 -> ./img${name}.png`)
+      //   }
+    </script>
+    <style>
+      .main {
+        border: 3px solid black;
+        border-radius: 5px;
+        width: 500px;
+        height: 400px;
+        margin: auto;
+        display: flex;
+      }
+
+      .buttons {
+        position: relative;
+        margin: auto;
+        margin-top: 350px;
+      }
+      .imgbox {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border: 5px solid orange;
+        margin-top: 10px;
+        margin-left: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="imgbox">
+        <img src="" alt="" id="img" style="width: 300px; height: 300px" />
+      </div>
+      <div class="buttons">
+        <button onclick="img1()">사과</button>
+        <button onclick="img2()">바나나</button>
+        <button onclick="img3()">포도</button>
+        <button onclick="img4()">복숭아</button>
+      </div>
+    </div>
+  </body>
+</html>

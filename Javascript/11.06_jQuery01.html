@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- jQuery CDN 붙이기 -->
+    <title>Document</title>
+    <script>
+      function setValue() {
+        $("#input1").val("setting");
+        // 동일  document.getElementbyId('input1').value = 'setting';
+      }
+
+      function getValue() {
+        alert($("#input1").val());
+      }
+
+      function changeStyle() {
+        $("span").css("font-size", "28px");
+        $("span").css("background-color", "tomato");
+        // 동일: span요소.style = "font-size: 28px; ~~~"
+      }
+
+      function changeAttribute() {
+        $("#input1").attr("placeholder", "input");
+        //동일: input요소.setattribute('placeholder', 'input')
+      }
+
+      function changeText() {
+        $("span").text("jQuery Text!");
+        //동일: span요소.innerTxt = "~"
+      }
+
+      function changeHTML() {
+        $("p").html("<h3>jQuery HTML</h3>");
+        //동일: p요소.innerHTML = "~"
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" name="" id="input1" />
+    <button onclick="setValue()">setValue</button>
+    <button onclick="getValue()">getValue</button>
+    <br />
+    <span style="display: inline-block; width: 100px">안녕</span>
+    <button onclick="changeStyle()">changeStyle</button>
+    <button onclick="changeAttribute()">changeAttr</button>
+    <button onclick="changeText()">changeText</button>
+    <p>p태그</p>
+    <button onclick="changeHTML()">changeHTML</button>
+  </body>
+</html>

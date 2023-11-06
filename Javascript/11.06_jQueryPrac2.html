@@ -1,0 +1,103 @@
+<html>
+  <head>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.5.0.min.js"
+    ></script>
+    <script
+      src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+      integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c="
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      div {
+        width: 100;
+        height: 100;
+      }
+      div:hover {
+        cursor: pointer;
+      }
+      .red {
+        background-color: red;
+      }
+      .orange {
+        background-color: orange;
+      }
+      .yellow {
+        background-color: yellow;
+      }
+      .green {
+        background-color: green;
+      }
+      .blue {
+        background-color: blue;
+      }
+      .purple {
+        background-color: purple;
+      }
+    </style>
+    <script>
+      let colors = ["red", "orange", "yellow", "green", "blue", "purple"];
+
+      //   for (let i = 0; i < color.lenght; i++) {
+      //     console.log([i]);
+      //   }
+
+      function changeColor() {
+        // 클래스가 없으면 해당 클래스 추가해서 뒷 배경색 변경
+        // $(".red").switchClass("red", "orange", 2);
+        // 배열이 있으니까 클래스에서 그 배열에 연결?
+        // $(".red").switchClass();
+
+        // colors.forEach((value) => {
+        //   console.log(value);
+        // }); // 배열 값 불러오기
+
+        // switch ($("div.")) {
+        //   case $(".red"):
+        //     $("div").switchClass("red", "orange");
+        //     break;
+        // }
+
+        // $("div").switchClass("orange", "yellow", 300);
+        // for (let i = 0; i < color.lenght; i++) {
+        //   console.log(i);
+        // }
+
+        //  한번 클릭으로 색변경
+        // $("div").switchClass("red", "orange", 2000);
+        // $("div").switchClass("orange", "yellow", 2000);
+        // $("div").switchClass("yellow", "green", 2000);
+        // $("div").switchClass("green", "blue", 2000);
+        // $("div").switchClass("blue", "purple", 2000);
+        // $("div").switchClass("purple", "red", 2000);
+
+        // 클릭할 때마다 색 변경
+        // if ($("div").hasClass("red") == true) {
+        //   $("div").switchClass("red", "orange");
+        // } else if ($("div").hasClass("orange") == true) {
+        //   $("div").switchClass("orange", "yellow");
+        // } else if ($("div").hasClass("yellow") == true) {
+        //   $("div").switchClass("yellow", "green");
+        // } else if ($("div").hasClass("green") == true) {
+        //   $("div").switchClass("green", "blue");
+        // } else if ($("div").hasClass("blue") == true) {
+        //   $("div").switchClass("blue", "purple");
+        // } else $("div").switchClass("purple", "red");
+
+        //배열을 이용해서 색 변경
+        let nowClass = $("div").attr("class");
+        let i = colors.indexOf(nowClass); // 0 ~ 5
+
+        // purple 일 때
+        if (i == colors.lenght - 1) {
+          $("div").switchClass(nowClass, colors[0]);
+        } else $("div").switchClass(nowClass, colors[i + 1]);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="red" onclick="changeColor();"></div>
+  </body>
+</html>
