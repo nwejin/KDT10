@@ -115,22 +115,32 @@
       // 3. 작성 버튼 클릭
       // 4. 1에서 가지고온 날짜 아래에 내용 추가 <p> 태그 생성
 
-      // $("td").on("click", function () {
-      //   console.log(this);
-      //   console.log($(this).text());
-      // });
-
       //클릭시 날짜 가져오기
 
-      // 해당 날짜를 날짜 input에 집어 넣기 (완료)
+      let target;
+
+      // 11.07_1. 해당 날짜를 날짜 input에 집어 넣기 (완료)
       $("td>p").on("click", function () {
-        console.log($(this).text());
+        // console.log($(this).text());
         $("#date").val($(this).text());
+        // console.log(this);
+
+        // this는 {스코프} 안에서만 작동하기대문에
+        // 11.07_2. content라는 변수를 만들어서 this 기억해두기
+        target = this;
       });
 
       function writeSchedule() {
         console.log($("#date").val());
-        console.log($("#content").val());
+        let content = $("#content").val();
+
+        // 11.07_3. 요소 추가
+        $(target).after(`<p> ${content} </p>`);
+
+        // 11.07_4. 초기화
+        $("#content").val("");
+        $("#date").val("");
+
         // 값 가져오기 (완료)
 
         // 내용을 넣고 작성 버튼 누르면 해당 값에 p태그가 생기면서 내용을 넣기
@@ -139,9 +149,9 @@
         // $("td").append(p);
         //  $("td").html('<p> ${$("#content").val())} </p>'')
 
-        //클릭한 날짜를 기억하는 이벤트 리스너
-
-        $("td").after(p);
+        //1. 클릭한 날짜를 알수 있는 이벤트 리스너 -> 클릭한 요소 기억해두기
+        // 2. 작성 버튼 클릭시 클릭한 날짜에 내용 추가
+        // 작성 클릭 했을 때 값 불러오기 완료 -> 해당 값을 날짜에 맞는 td에 td를 만들어서 널어야함
       }
     </script>
   </body>
