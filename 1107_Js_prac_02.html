@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <div id="parent">
+      <div class="box" id="box1">박스 1번</div>
+      <div class="box">박스 2번</div>
+      <div class="box">박스 3번</div>
+      <div class="box">박스 3번</div>
+    </div>
+    <input type="text" name="" id="input1" /> -->
+    <div>
+      <div>실습 1. 간단 계산기 만들기</div>
+      <br />
+      <div>
+        값1:
+        <input type="text" name="" id="num1" />
+      </div>
+      <div>
+        값2:
+        <input type="text" name="" id="num2" />
+      </div>
+      <div>
+        연산자:
+        <input type="text" name="" id="need" />
+      </div>
+      <div>
+        결과:
+        <input type="text" name="" id="result" />
+      </div>
+    </div>
+    <br />
+    <button onclick="output()">계산하기</button>
+    <button onclick="reset()">초기화</button>
+
+    <script>
+      //   let parent = document.getElementById("parent");
+      //   console.log(parent);
+
+      //   let child1 = document.createElement("p"); // p태그 만들기
+      //   child1.innerText = "네번째 Text"; // 태그 안에 텍스트 넣기
+      //   parent.appendChild(child1); // 자식 요소 추가
+      //   parent.removeChild(child1);
+
+      //   parent.classList.add("box1"); // box1 class 추가
+      //   box1.innerText = "hi"; // 생성한 class에 문자 추가
+
+      //   let input = document.getElementById("input1"); //input 아이디 선택
+      //   input.setAttribute("placeholder", "검색하기"); // 속성 추가
+      //   //   console.log(input);
+
+      // 1. 값 1, 값 2, 연산자에 입력된 값
+
+      function output() {
+        let num1 = Number(document.getElementById("num1").value);
+        let num2 = Number(document.getElementById("num2").value);
+        let need = document.getElementById("need").value;
+
+        let result = document.getElementById("result");
+        switch (need) {
+          case "+":
+            result.value = num1 + num2;
+            break;
+          case "-":
+            result.value = num1 - num2;
+            break;
+          case "*":
+            result.value = num1 * num2;
+            break;
+          case "/":
+            result.value = num1 / num2;
+            break;
+        }
+
+        // if ((need = String("+"))) {
+        //   document.getElementById("result").value = num1 + num2;
+        // } else if ((need = String("-"))) {
+        //   document.getElementById("result").value = num1 - num2;
+        // } else if ((need = String("*"))) {
+        //   document.getElementById("result").value = num1 * num2;
+        // } else if ((need = String("/"))) {
+        //   document.getElementById("result").value = num1 / num2;
+        // }
+
+        console.log(num1, num2, need);
+      }
+
+      function reset() {
+        num1.value = "";
+        num2.value = "";
+        need.value = "";
+        result.value = "";
+      }
+
+      // 함수 밖 = 전역변수 어디서든 사용 가능
+      // 함수 안 = 지역변수 함수 안에서만 사용 가능
+    </script>
+  </body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습 3</title>
+    <script
+      src="https://kit.fontawesome.com/837ff3adc1.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      /* * {
+        border: 1px solid black;
+      } */
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      header {
+        width: 100%;
+        height: 100px;
+        z-index: 100;
+      }
+
+      header .inner {
+        background-color: lightblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+
+      header .inner .logo {
+        position: relative;
+        color: white;
+        right: 200px;
+        font-size: 2rem;
+      }
+
+      header .inner .menu {
+        display: flex;
+      }
+
+      header .inner .menu li {
+        margin: 0 10px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      /* 태블릿 */
+      @media screen and (480px < width <= 1024px) {
+        /*  해야하는거
+        1. 헤더 높이 60
+        2. 이글루 이미지 정 가운데
+        3. ul이 하단으로 내려오고 색 변경
+        4. li가 세로 정렬 & 글씨 변경
+         */
+
+        /* mediaQuery 내부에서는 자세히 or 위에서 적은것과 동일하게  */
+        header {
+          height: 60px;
+        }
+
+        header .inner .logo {
+          right: 0px;
+          font-size: 3rem;
+        }
+
+        header .inner .menu {
+          background-color: rgb(211, 239, 248);
+          display: block;
+          position: absolute;
+          top: 60px;
+          width: 100%;
+          height: 160px;
+        }
+
+        header .inner .menu li {
+          padding: 10px 0;
+          font-weight: 400;
+          text-align: center;
+        }
+      }
+
+      /* 모바일 */
+      @media screen and (max-width: 480px) {
+        /*  해야하는거
+        1. 헤더 높이 60
+        2. 이글루 이미지 정 가운데
+        3. ul이 하단으로 내려오고 색 변경
+        4. li가 세로 정렬 & 글씨 변경
+         */
+
+        /* mediaQuery 내부에서는 자세히 or 위에서 적은것과 동일하게  */
+        header {
+          height: 45px;
+        }
+
+        header .inner {
+          background-color: tomato;
+        }
+
+        header .inner .logo {
+          right: 0px;
+          font-size: 1.5rem;
+        }
+
+        header .inner .menu {
+          background-color: pink;
+          display: block;
+          position: absolute;
+          top: 45px;
+          width: 100%;
+          height: 140px;
+        }
+
+        header .inner .menu li {
+          padding: 10px 0;
+          font-weight: 400;
+          text-align: center;
+          font-size: 0.8rem;
+        }
+      }
+
+      /* 다른 방법 */
+      /* header {
+            height: 60px;
+        }
+        header .inner {
+            display: block;
+        }
+
+        header .inner .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            right: 0px;
+            width: 100%;
+            height 60px
+        }
+
+        header .inner .menu {
+            background-color: rgb(211, 239, 248);
+            display: block;
+            text-align: center;
+        }
+
+        header .inner .menu li {
+            padding: 10px 0;
+            font-weight: 500px;
+        } */
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+        <div class="logo">
+          <i class="fa-solid fa-igloo"></i>
+        </div>
+        <ul class="menu">
+          <li>메뉴1</li>
+          <li>메뉴2</li>
+          <li>메뉴3</li>
+          <li>메뉴4</li>
+        </ul>
+      </div>
+    </header>
+  </body>
+</html>

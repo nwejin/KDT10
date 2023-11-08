@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   let email = "leo4m@naver.com";
+      //   console.log(email.split("").reverse().join(""));
+
+      //   console.log(email.split("e").join(""));
+      //   console.log(email.join(""));
+
+      //   let teams = ["che", "tot", "liv", "man", "ful", "ars"];
+      //   console.log(teams.push("ACM"));
+      //   console.log(teams.unshift("ACM"));
+
+      //   console.log(teams);
+      //   console.log(teams.length);
+
+      //   for (let i = 0; i < teams.length; i++) {
+      //     console.log(teams[i]);
+      //   }
+      //   for (let team of teams) {
+      //     console.log(team);
+      //   }
+
+      //   teams.forEach(function (team, i, arr) {
+      //     console.log(team, i, arr);
+      //   });
+
+      //   //   teams.forEach((team, i, arr) => {
+      //   //     console.log(teams, i, arr);
+      //   //   });
+
+      //   let numbers = [1, 2, 3, 4, 5, 6];
+      //   let sum1 = 0;
+      //   let sum2 = 0;
+      //   let sum3 = 0;
+
+      //   for (let i = 0; i < numbers.length; i++) {
+      //     console.log(numbers[i]);
+      //     sum1 += numbers[i];
+      //   }
+
+      //   for (let num of numbers) {
+      //     sum2 += num;
+      //   }
+
+      //   numbers.forEach((num) => {
+      //     sum3 += num;
+      //   });
+
+      //   console.log(sum1, sum2, sum3);
+
+      //   let arr;
+      //   arr = numbers.filter(function (num) {
+      //     return num > 3;
+      //   });
+
+      //   console.log(arr);
+
+      //   let coding = ["C", "c++", "Java", "Javascript"];
+      //   let result = coding.filter((cod) => cod.length > 3);
+      //   console.log(result);
+
+      let prac = [];
+      let sum1 = 0;
+      let sum2 = 0;
+      let sum3 = 0;
+
+      for (let i = 1; i <= 100; i++) {
+        prac.push(i);
+      }
+      console.log(prac); // 1~100 배열 만들기
+
+      for (let n = 0; n < prac.length; n++) {
+        sum1 = sum1 + prac[n];
+      }
+      console.log(sum1);
+
+      for (let num of prac) {
+        sum2 += num;
+      }
+      console.log(sum2);
+
+      prac.forEach((num) => {
+        sum3 += num;
+      });
+      console.log(sum3);
+
+      let fruits1 = [
+        "사과",
+        "딸기",
+        "파인애플",
+        "수박",
+        "참외",
+        "오렌지",
+        "자두",
+        "망고",
+      ];
+      let fruits2 = ["수박", "사과", "참외", "오렌지", "파인애플", "망고"];
+
+      let same = [];
+      let diff = [];
+
+      for (i = 0; i < fruits1.length; i++) {
+        if (fruits2.includes(fruits1[i])) {
+          same.push(fruits1[i]);
+        } else {
+          diff.push(fruits1[i]);
+        }
+      }
+      console.log(same);
+      console.log(diff);
+      //   same = fruits1.filter((fruits3) => fruits1.includes(fruits2));
+    </script>
+  </head>
+
+  <body></body>
+</html>

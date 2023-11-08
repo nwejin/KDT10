@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        border: 5px solid black;
+      }
+
+      /* 480 이하 */
+      @media screen and (max-width: 480px) {
+        .less {
+          background-color: red;
+        }
+      }
+      /* 480 이상 */
+      @media screen and (min-width: 480px) {
+        .more {
+          background-color: blue;
+        }
+      }
+      /* 480이상 600이하 */
+      @media screen and (max-width: 600px) and (min-width: 480px) {
+        .less-and-more {
+          background-color: purple;
+        }
+      }
+      /* 위와 동일 */
+      /* @media screen and (480px <= witdh <= 600px) {
+        .less-and-more {
+          background-color: purple;
+        }
+      } */
+
+      /* 가로 landscape */
+      @media screen and (orientation: landscape) {
+        body {
+          background-color: gold;
+        }
+      }
+
+      /* 세로 portrait */
+      @media screen and (orientation: portrait) {
+        body {
+          background-color: pink;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="less">less 480px</div>
+    <br />
+    <div class="more">more 480px</div>
+    <br />
+    <div class="less-and-more">less-and-more 480px</div>
+  </body>
+</html>
