@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .gridContainer {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        /* 세로 - 열 */
+        grid-template-rows: repeat(4, 100px);
+        /* 가로 - 행 */
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 100px;
+      }
+
+      /* 가로를 하고 세로를 한다. */
+      .item1 {
+        background-color: #f94144;
+        grid-column: span 6;
+        /* 6칸만큼 전부 확장하겠다 (span) */
+      }
+
+      .item2 {
+        background-color: #f3722c;
+        grid-column: span 1;
+        grid-row: span 2;
+        line-height: 200px;
+      }
+
+      .item3 {
+        background-color: #f9c74f;
+        grid-column: span 4;
+        grid-row: span 1;
+      }
+      .item4 {
+        background-color: #43aa8b;
+        grid-column: span 1;
+        grid-row: span 2;
+        line-height: 200px;
+      }
+      .item5 {
+        background-color: #f8961e;
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+      .item6 {
+        background-color: #90be6d;
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+      .item7 {
+        background-color: #4444ff;
+        grid-column: span 6;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+     grid track: 
+    gird item: 요소
+    gird gutter: 여백
+    행 row - 가로로 몇칸 나눌건지
+    열 column - 세로로 몇칸 나눌건지
+ -->
+    <div class="gridContainer">
+      <div class="gridItem item1">item1</div>
+      <div class="gridItem item2">item2</div>
+      <div class="gridItem item3">item3</div>
+      <div class="gridItem item4">item4</div>
+      <div class="gridItem item5">item5</div>
+      <div class="gridItem item6">item6</div>
+      <div class="gridItem item7">item7</div>
+    </div>
+  </body>
+</html>
