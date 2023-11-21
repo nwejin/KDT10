@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>로그인 페이지</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -15,6 +15,229 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+
+    <style>
+      body {
+        height: 1500px;
+        background-color: rgb(241, 241, 232);
+      }
+      .header {
+        display: flex;
+        width: auto;
+        height: 100px;
+        background-color: rgb(211, 211, 211);
+        margin-top: 30px;
+      }
+      .menuButton {
+        position: relative;
+        /* align-items: center;
+        justify-content: center; */
+        margin: auto;
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
+      .profileImg {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        border: 5px solid rgba(131, 131, 131, 0.4);
+        border-radius: 50%;
+        margin-top: 10px;
+        margin-left: 100px;
+      }
+
+      main {
+        background-color: white;
+        display: block;
+        position: relative;
+        height: 800px;
+        z-index: 30;
+      }
+
+      .input-group {
+        width: 500px;
+      }
+
+      .email {
+        /* position: relative; */
+        margin: auto;
+        width: 500px;
+        height: 200px;
+        padding-top: 50px;
+      }
+
+      .password {
+        margin: auto;
+        width: 500px;
+        height: 200px;
+      }
+
+      /* .emailtext {
+        width: 300px;
+      } */
+
+      .buttons {
+        display: flex;
+        margin: auto;
+        width: 300px;
+      }
+      .dropdown {
+        display: flex;
+        margin: auto;
+        width: 400px;
+        margin-top: 100px;
+      }
+
+      .cardnews {
+        position: absolute;
+        margin-top: 10px;
+        margin-left: 5px;
+        z-index: 100;
+      }
+
+      .card-text {
+        text-align: center;
+      }
+    </style>
   </head>
-  <body></body>
+
+  <body>
+    <!-- 뉴스레터 페이지 만들어보기 -->
+
+    <!-- 1. 로그인 페이지  -->
+
+    <header class="header">
+      <img
+        class="profileImg"
+        src="https://yt3.ggpht.com/-ps_9LPzm2NnEq4BQ2ZMpSm7E-wLoXv5YbFLopzCnXba82mUWO9l7pOjq_Dwl3G-gu9okY4I9FQ=s108-c-k-c0x00ffffff-no-rj"
+        alt=""
+      />
+      <div class="menuButton">
+        <ul class="nav nav-pills">
+          <button type="button" class="btn btn-primary me-3">
+            <li role="presentation" class="active"><a href="#">Main</a></li>
+          </button>
+          <button type="button" class="btn btn-primary me-3">
+            <li role="presentation"><a href="#">Profile</a></li>
+          </button>
+          <button type="button" class="btn btn-primary">
+            <li role="presentation"><a href="#">Login</a></li>
+          </button>
+        </ul>
+      </div>
+
+      <!-- 헤더 -->
+      <!-- 제목 -->
+    </header>
+
+    <main class="sticky-top">
+      <div class="cardnews">
+        <div class="card" style="width: 18rem">
+          <img
+            src="https://yt3.ggpht.com/-ps_9LPzm2NnEq4BQ2ZMpSm7E-wLoXv5YbFLopzCnXba82mUWO9l7pOjq_Dwl3G-gu9okY4I9FQ=s108-c-k-c0x00ffffff-no-rj"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <p class="card-text">안녕하세요</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="email">
+        <button type="button" class="btn btn-danger ms-1 mb-3">ID</button>
+        <div class="input-group mb-3 emailInp">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Username"
+            aria-label="Username"
+          />
+          <span class="input-group-text">@</span>
+          <!-- <div class="input-group">
+            <select
+              class="form-select"
+              id="inputGroupSelect04"
+              aria-label="Example select with button addon"
+            >
+              <option selected>Choose...</option>
+              <option value="1">naver.com</option>
+              <option value="2">gmail.com</option>
+              <option value="3"></option>
+            </select>
+          </div> -->
+          <input
+            type="text"
+            class="form-control"
+            placeholder="email"
+            aria-label="Server"
+          />
+        </div>
+      </div>
+
+      <div class="password">
+        <button type="button" class="btn btn-danger ms-1 mb-3">PASSWORD</button>
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Password"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="btn btn-outline-primary me-3">
+          로그인
+        </button>
+        <button type="button" class="btn btn-outline-primary">
+          로그인 확인
+        </button>
+        <button type="button" class="btn btn-outline-primary ms-3">
+          로그아웃
+        </button>
+      </div>
+
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+          style="margin: auto"
+        >
+          메뉴 바로 가기
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">뉴스</a></li>
+          <li><a class="dropdown-item" href="#">달력</a></li>
+          <li><a class="dropdown-item" href="#">간편 계산기</a></li>
+        </ul>
+      </div>
+
+      <!-- 오늘의 소식 1 -->
+      <!-- 바디 -->
+      <!-- 바디 안에 두개로 분할 -->
+    </main>
+
+    <footer>
+      <!-- 푸터 -->
+      <!-- 소식을 듣고 싶으면 이메일 입력 -->
+      <!-- 오늘 날짜 -->
+    </footer>
+  </body>
+
+  <!-- 웹 스토리지: 프론트에서 웹에 저장할 수 있는 저장소 
+    Key와 value값으로 이루어진 데이터를 저장할 수 있음-->
+
+  <!-- 세션 스토리지: 웹페이지 세션이 끝날때 저장된 데이터가 모두 사라짐 
+    탭이 다른 경우, 탭을 닫은 경우 저장된 데이터 사용 불가-->
+
+  <!-- 로컬 스토리지: 세션이 끝나도 데이터 지워지지 않음
+    탭이 다르거나, 해당 페이지를 나가도 데이터 사용 가능, 만료 시간 정함 -->
 </html>
