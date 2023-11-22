@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>index</title>
-    <link rel="stylesheet" href="/static/css/index.css" />
+    <%- include('./component/head', {title: 'HOME'})%>
   </head>
   <body>
     <%- include('./component/header')%>
@@ -12,10 +11,24 @@
     <% for(let i = 0; i<5; i++) { %>
 
     <div><%= i %> 번째 인사</div>
-    <% } %>
-    <!--  -->
-    <% let name = "최진" %>
-    <!--  -->
+    <% } %> <% let name = "최진" %>
+
     <div>이름: <%= name%></div>
+
+    <!-- btns 버튼 -->
+
+    <% for(let btn of btns) { %>
+    <button type="button" class="btn btn-info"><%= btn %></button>
+    <% } %>
+
+    <!-- isLogin -->
+
+    <% if (!isLogin) { %>
+    <h3>로그인 하세요!</h3>
+    <% } else { %>
+    <h3>로그인 했구나!</h3>
+    <div><%= me.name%></div>
+    <div><%= me.msg%></div>
+    <% }%>
   </body>
 </html>
