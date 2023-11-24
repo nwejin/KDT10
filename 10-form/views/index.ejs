@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form 전송</title>
+  </head>
+  <body>
+    <h1>Form</h1>
+
+    <h2>Get 요청</h2>
+    <form action="/login" method="get">
+      <!-- input id 속성이랑 label for 속성 이름을 동일하게  -->
+      <label for="id"> ID </label>
+      <input
+        type="text"
+        name="id"
+        placeholder="ID는 최소 3글자"
+        id="id"
+        minlength="3"
+      />
+      <label for="pw">
+        PW
+        <input type="password" name="pw" placeholder="PW" id="pw" required />
+      </label>
+      <input type="number" name="grade" id="" placeholder="GRADE" max="3" />
+      <!-- form 태그 안에 있는 button 태그는 기본적으로 submit 타입이다. -->
+      <button>제출</button>
+    </form>
+
+    <h2>Post 요청</h2>
+    <!--pattern 속성: 폼 요소에 값이 입력되었을 때, 입력된 값에 대해 검증 -->
+    <!-- required 속성: form 요소에 값이 반드시 들어가야하는지 여부 결정 -->
+
+    <form action="/login" method="post">
+      <!-- 메소드가 다르면 url이 같아도 상관 없다. -->
+      <!-- input id 속성이랑 label for 속성 이름을 동일하게  -->
+      <label for="id2"> ID </label>
+      <!-- name은 키 값 -->
+      <input
+        type="text"
+        name="id"
+        placeholder="ID"
+        id="id2"
+        pattern="^([a-zA-Z0-9가-힣]){4, 10}$"
+        maxlength="10"
+        minlength="4"
+        title="아이디는 대소문자, 숫자, 한글로 구성된 4자리~10자리로 입력해주세요"
+      />
+      <label for="pw2">
+        PW
+        <input
+          type="password"
+          name="pw"
+          placeholder="PW"
+          id="pw2"
+          pattern="^([a-z0-9]){8,12}$"
+          required
+        />
+      </label>
+      <!-- form 태그 안에 있는 button 태그는 기본적으로 submit 타입이다. -->
+      <button>제출</button>
+    </form>
+
+    <!-- js form 유효성 검사 -->
+
+    <h2>JS 유효성 검사</h2>
+    <form
+      action="/js-form-check"
+      method="post"
+      name="valiForm"
+      onsubmit="return checkForm(this)"
+      target="_blank"
+    >
+      <input
+        type="text"
+        name="id"
+        id=""
+        minlength="1"
+        placeholder="ID"
+        title="최소 1글자"
+      />
+      <span>우편물 수령 장소</span>
+      <input type="checkbox" name="post" value="자택" /> 자택
+      <input type="checkbox" name="post" value="회사" /> 회사
+      <button>제출</button>
+    </form>
+
+    <br />
+
+    <button style="width: 150px; height: 100px; font-size: 20px">
+      <a href="/practice1" style="text-decoration: none"> 실습 이동하기 </a>
+    </button>
+
+    <script>
+      function checkForm(form) {
+        // 1) name으로 폼 선택
+        // const form = document.forms["valiForm"];
+
+        // 2) this로 보내서 매개변수로 받기
+        console.log(form);
+
+        if (form.id.value == "") {
+          form.id.focus();
+          alert("아이디를 입력해라!");
+
+          return false; // submit 이벤트가 일어나지 않음
+        }
+
+        //각각의 input 요소의 name 속성값으로 접근
+        //  checkbox가 둘다 체크가 안되어 있을때,,
+        if (form.post[0].checked == false && form.post[1].checked == false) {
+          alert("우편물 수령 장소를 선택해!");
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>
