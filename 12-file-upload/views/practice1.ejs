@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>practice1</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <form
+      action="/upload/profile"
+      method="post"
+      enctype="multipart/form-data"
+      name="user"
+    >
+      <input type="text" name="userId" id="userId" placeholder="아이디" />
+      <br />
+      <input type="password" name="userPw" id="userPw" placeholder="비밀번호" />
+      <br />
+      <input type="text" name="userName" id="userName" placeholder="이름" />
+      <br />
+      <input type="text" name="userAge" id="userAge" placeholder="나이" /><br />
+
+      <input type="file" name="userProfile" id="userProfile" /> <br />
+      <br />
+
+      <button onclick="register()">회원가입</button>
+    </form>
+
+    <script>
+      function register() {
+        const form = document.forms["user"];
+        const data = {
+          ID: form.userId.value,
+          PW: form.userPw.value,
+          name: form.userName.value,
+          Age: form.userAge.value,
+        };
+      }
+    </script>
+  </body>
+</html>

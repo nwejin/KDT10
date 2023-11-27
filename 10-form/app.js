@@ -3,7 +3,7 @@ const app = express();
 const PORT = 8000;
 
 app.set("view engine", "ejs");
-app.set("/views", "views");
+app.set("views", "/views"); // view템플릿 파일을 찾을때 사용할 디렉토리 지정, views가 디폴트여서 오타가 있어도 동작했던 것
 
 // 미들웨어 등록
 

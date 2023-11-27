@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+      <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+      fieldset {
+        width: 200px;
+        height: 50px;
+      }
+
+  
+    </style>
+  </head>
+  <body>
+    <h2>11월 25일 토요일 실습 1</h2>
+
+    <form action="" name="register">
+
+      <label for="name"> 이름 </label>
+        <input type="text" name="name" id="name" placeholder="이름" required/>
+     
+      <fieldset>
+        <legend>성별</legend>
+        <label for="male"> 남 </label>
+        <input type="radio" name="gender" id="gender" value="남자" required>
+        <label for="female">여</label>
+        <input type="radio" name="gender" id="gender" value="여자" required>
+      </fieldset>
+
+      <fieldset>
+        <legend>생년월일</legend>
+       
+        <select name="birthYear" id="year">
+            <% for(let i = 0; i< 30;i++) { %>
+            <option value="<%=2010-i%>">
+            <%= 2010-i%>
+            </option>
+            <% } %>
+        </select>
+         <label for="year">년</label>
+  
+        <select name="birthMonth" id="month">
+            <% for(let i = 1; i <=12; i++) {%>
+            <option value="<%= i%>">
+            <%= i %>
+            </option>
+            <% } %>
+        </select>
+        <label for="month">월</label>
+  
+        <select name="birthDate" id="date">
+            <% for(let i = 1; i <= 31; i++) {%>
+            <option value="<%= i%>">
+            <%= i %>
+            </option>
+            <% } %>
+        </select>
+       <label for="date">일</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>관심사</legend>
+        
+        <input type="checkbox" name="favor" id="trip" value="여행">
+        <label for="favor">여행</label>
+        <input type="checkbox" name="favor" id="fashion" value="패션">
+        <label for="favor">패션</label>
+        <input type="checkbox" name="favor" id="food" value="음식">
+        <label for="favor">음식</label>
+      </fieldset>
+      
+    </br>
+      <button type="button" onclick="axiosGet()">회원가입</button>
+
+      <div class="result"></div>
+    </form>
+
+    <script>
+
+      const resultBox = document.querySelector(".result");
+
+
+      function axiosGet() {
+
+          // 체크박스 여러개는 checkvalidity 동작 x
+          // 새로운 배열로 정렬
+
+        // 1. forEach 사용
+        const arr = [];
+    
+        // form.favor.forEach((element) => {
+        //   if (elememt.checked) {
+        //      arr.push(element.value);
+        //   }
+        // })
+
+        // console.log(arr)
+
+
+        const favor = document.getElementsByName("favor");
+        for (let i = 0; i < favor.length; i++) {
+          if (favor[i].checked == true) {
+            arr.push(favor[i].value);
+          }
+        }
+        console.log(arr)
+
+        // 2. filter, map 반복문 사용
+        // Arrat.from(arrayLike) : 유사 배열 객체를 배열로 변환한다
+        // const hobbies = Array.from(form.favor)
+        // .filter((elem) => elem.checked === true)
+        // .map((elem) => elem.value);
+
+        // console.log(hobbies)
+
+
+      const form = document.forms['register']
+      const data = {
+        name: form.name.value, // 하나의 요소로 반환되기에 value 속성 접근 가능
+        gender: form.gender.value,
+        birth: `${form.month.value}월 ${form.date.value}일`,
+        favor: arr//  여러개의 checkbox들은 value 속성으로 접근이 불가능 하다 => nodelist 형태로 반환
+      }
+      
+      console.log('data > ', data)
+
+      axios({
+        method:"get",
+        url: "/axiosGet",
+        params: data,
+      }).then((response) => {
+        console.log(response);
+        console.log(response.date);
+        const {username, gender, birth, favor} = response.data
+
+        // const data = response.data;
+        console.log(data)
+
+        resultBox.textContent = `Get /axios 요청 성공! ${data.name} 회원가입 완료! 생일은 ${data.birth}, 취미는 ${favor}이다!`;
+
+      }).catch((error) => {
+        console.log('error >', error)
+      })
+    }
+
+    </script>
+  </body>
+</html>

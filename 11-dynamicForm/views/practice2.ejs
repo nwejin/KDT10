@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <style>
+      .success {
+        color: blue;
+        font-weight: 700;
+      }
+      .error {
+        color: red;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>실습 2</h2>
+
+    <form name="login">
+      <br />
+      <label for="userId">
+        ID <input type="text" name="userId" id="userId" />
+      </label>
+      <br />
+      <label for="userPw">
+        PW
+        <input type="password" name="userPw" id="userPw" />
+      </label>
+      <button type="button" onclick="loginBtn()">로그인</button>
+
+      <div class="result"></div>
+    </form>
+
+    <script>
+      const resultBox = document.querySelector(".result");
+
+      function loginBtn() {
+        const form = document.forms["login"];
+        const data = {
+          userId: form.userId.value,
+          userPw: form.userPw.value,
+        };
+
+        // form validation
+        if (!form.userId.checkValidity() || !form.userPw.checkValidity()) {
+          result.textContet = "아이디와 패스워드는 필수값입니다!";
+          return;
+        }
+        axios({
+          method: "post",
+          url: "/axios2",
+          data: data,
+        }).then((response) => {
+          console.log(response.data);
+
+          if (response.data.isSuccess) {
+            resultBox.textContent = `로그인 성공!`;
+            resultBox.classList.remove("error");
+            resultBox.classList.add("success");
+          } else {
+            resultBox.textContent = `아이디 또는 패스워드가 잘못됐습니다.`;
+            resultBox.classList.remove("success");
+            resultBox.classList.add("error");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
