@@ -5,14 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>practice1</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+      .register {
+        margin-top: 10px;
+        width: 300px;
+        height: 400px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px #0002;
+        display: none;
+      }
+
+      img {
+        width: 200px;
+        height: 200px;
+        margin-top: 30px;
+        margin-left: 50px;
+        border-radius: 30px;
+        box-shadow: 0 0 20px #0002;
+      }
+
+      .profile {
+        text-align: center;
+      }
+
+      .uId {
+        font-weight: 700;
+        font-size: 20px;
+      }
+    </style>
   </head>
   <body>
-    <form
-      action="/upload/profile"
-      method="post"
-      enctype="multipart/form-data"
-      name="user"
-    >
+    <form name="user">
       <input type="text" name="userId" id="userId" placeholder="아이디" />
       <br />
       <input type="password" name="userPw" id="userPw" placeholder="비밀번호" />
@@ -24,18 +47,72 @@
       <input type="file" name="userProfile" id="userProfile" /> <br />
       <br />
 
-      <button onclick="register()">회원가입</button>
+      <button type="button" onclick="register()">회원가입</button>
     </form>
 
+    <div class="register">
+      <img src="" alt="" />
+      <div class="uId profile">아이디</div>
+      <br />
+      <div class="uPw profile">패스워드</div>
+      <div class="uName profile">이름</div>
+      <div class="uAge profile">나이</div>
+    </div>
+
     <script>
+      //   const path = require("path");
       function register() {
         const form = document.forms["user"];
-        const data = {
-          ID: form.userId.value,
-          PW: form.userPw.value,
-          name: form.userName.value,
-          Age: form.userAge.value,
-        };
+
+        const formData = new FormData();
+
+        // id 요소
+        // console.log(form.userId);
+        // console.log(form.userProfile.files[0].name);
+
+        const file = document.querySelector("#userProfile");
+        const ID = document.querySelector("#userId");
+        const PW = document.querySelector("#userPw");
+        const NAME = document.querySelector("#userName");
+        const AGE = document.querySelector("#userAge");
+
+        // formData.append("ID", form.userid);
+        // formData.append("profile", form.userProfile.files[0]);
+
+        // multer 세부 설정에서 req.body를 쓰고 싶다면 파일을 맨 마지막에 append
+        formData.append("userId", ID.value);
+        formData.append("userPw", PW.value);
+        formData.append("userName", NAME.value);
+        formData.append("userAge", AGE.value);
+        formData.append("dynamicFile", file.files[0]);
+
+        // 파일 이름 바꾸기
+        // const newFile = new File(form.userProfile.files[0]);
+
+        // //확장자 가져오기
+        // const ext = form.userProfile.files[0].name.split(".")[1];
+        // console.log("ext >", ext);
+
+        axios({
+          method: "post",
+          url: "/uploads/practice1",
+          data: formData,
+          headers: {
+            "content-type": "multipart/form-data",
+          },
+        }).then((res) => {
+          console.log(res.data);
+          //   const { file, ID, PW, NAME, AGE } = response.data;
+
+          //   const register = document.querySelector(".register");
+          //   regitser.document.style.display = "block";
+
+          //   const imgElem = document.querySelector("img");
+          //   imgElem.src = "/" + file.path;
+
+          //   const uId = document.querySelector(".uId");
+          //   uId.textContent = `${ID}님 환영합니다!`;
+        });
       }
     </script>
   </body>
