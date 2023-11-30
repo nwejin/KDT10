@@ -63,13 +63,15 @@ app.get("/axiosGet", (req, res) => {
 const userId = "최진";
 const userPw = "1234";
 
+// 데이터 띄우기
 app.get("/practice2", (req, res) => {
   res.render("practice2");
 });
 
+// 데이터 보내기
 app.post("/axios2", (req, res) => {
   console.log(req.body);
-  res.send(req.body);
+  // res.send(req.body);
   //아이디, 패스워드를 값과 클라이언트에서 넘겨받은 값이 일치하는지 검사, 결과 값 반환
 
   if (userId === req.body.userId && userPw === req.body.userPw) {

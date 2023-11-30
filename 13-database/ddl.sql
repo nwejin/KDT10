@@ -22,3 +22,11 @@
 -- PRIMARY KEY : 기본키 설정 (중복값, NULL 불가) -> 하나의 테이블 당 하나만 설정
 -- DEFAULT 기본값 : 특정 속성의 기본 갑 설정
 -- UNIQUE : 중복허용 X, 단 NULL 허용 // 하나의 테이블당 여러개 가능
+
+
+CREATE TABLE product (
+   id int primary key not null auto_increment,
+    name varchar(30) not null,
+    model_number varchar(15) not null,
+    series varchar(30) not null
+);
