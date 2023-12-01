@@ -89,49 +89,54 @@ app.post("/dynamic", uploadDetail.single("dynamicFile"), (req, res) => {
   res.send({ file: req.file, title: req.body.title });
 });
 
-// 실습
+// 실습 multer 세부 설정
+
+// 미들웨어 역할
+// const uploadPractice = multer({
+//   // storage: 저장할 공간에 대한 정보
+//   storage: multer.diskStorage({
+//     // destination : 경로 설정
+//     destination(req, file, done) {
+//       // done: callback 함수
+//       // done(null, xx) : null => 에러가 없다는 의미
+//       done(null, "uploads/"); // 파일을 업로드할 경로 설정
+//     },
+//     filename(req, file, done) {
+//       console.log("file name > req.body :", req.body);
+//       //파일의 확장자 추출 => "path" 모듈 활용
+//       const ext = path.extname(file.originalname);
+//       console.log("exe > ", ext);
+//       console.log("file name > ", path.basename(file.originalname, ext));
+//       // path.basename(file.originalname, ext) => 확장자 제외 파일이름
+//       // userId.확장자 -> 파일명
+//       done(null, req.body.id + ext);
+//     },
+//   }),
+//   // limits: 파일 제한 정보
+//   limits: {
+//     fileSize: 5 * 1024 * 1024, // 5mb
+//   },
+// });
+
+// 실습 페이지 랜더
 app.get("/practice1", (req, res) => {
   res.render("practice1");
 });
 
-// 실습 multer 세부 설정
-
-// 미들웨어 역할
-const uploadPractice = multer({
-  // storage: 저장할 공간에 대한 정보
-  storage: multer.diskStorage({
-    // destination : 경로 설정
-    destination(req, file, done) {
-      // done: callback 함수
-      // done(null, xx) : null => 에러가 없다는 의미
-      done(null, "uploads/"); // 파일을 업로드할 경로 설정
-    },
-    filename(req, file, done) {
-      console.log("file name > req.body :", req.body);
-      //파일의 확장자 추출 => "path" 모듈 활용
-      const ext = path.extname(file.originalname);
-      console.log("exe > ", ext);
-      console.log("file name > ", path.basename(file.originalname, ext));
-      // path.basename(file.originalname, ext) => 확장자 제외 파일이름
-      // userId.확장자 -> 파일명
-      done(null, req.body.id + ext);
-    },
-  }),
-  // limits: 파일 제한 정보
-  limits: {
-    fileSize: 5 * 1024 * 1024, // 5mb
-  },
-});
-
+// 데이터 받아오기
 app.post(
-  "/uploads/practice1",
-  uploadPractice.single("userProfile"),
+  "/practice1/upload",
+  uploadDetail.single("userProfile"),
   (req, res) => {
-    console.log(req.body);
-    console.log(req.file);
-    res.send("파일 업로드 완료!");
+    res.send({ file: req.file, userInfo: req.body });
   }
 );
+
+// app.post("/dynamic", uploadDetail.single("dynamicFile"), (req, res) => {
+//   console.log(req.file);
+//   console.log(req.body);
+//   res.send({ file: req.file, title: req.body.title });
+// });
 
 app.listen(PORT, () => {
   console.log(`${PORT} port is opening`);

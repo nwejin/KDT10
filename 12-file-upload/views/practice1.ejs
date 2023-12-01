@@ -26,15 +26,22 @@
 
       .profile {
         text-align: center;
+        margin-bottom: 5px;
       }
 
       .uId {
+        margin-top: 10px;
         font-weight: 700;
         font-size: 20px;
       }
     </style>
   </head>
   <body>
+    <h1>회원 가입 실습</h1>
+    <a href="/"> 메인 화면</a>
+    <br />
+    <br />
+
     <form name="user">
       <input type="text" name="userId" id="userId" placeholder="아이디" />
       <br />
@@ -51,68 +58,65 @@
     </form>
 
     <div class="register">
-      <img src="" alt="" />
-      <div class="uId profile">아이디</div>
+      <img src="" alt="" id="profileImg" />
+      <div class="uId profile"></div>
       <br />
-      <div class="uPw profile">패스워드</div>
-      <div class="uName profile">이름</div>
-      <div class="uAge profile">나이</div>
+      <div class="uPw profile"></div>
+      <div class="uName profile"></div>
+      <div class="uAge profile"></div>
+      <div class="profile">환영합니다!</div>
     </div>
 
     <script>
       //   const path = require("path");
       function register() {
-        const form = document.forms["user"];
+        // const form = document.forms["user"];
 
         const formData = new FormData();
 
-        // id 요소
-        // console.log(form.userId);
-        // console.log(form.userProfile.files[0].name);
+        const fileElem = document.querySelector("#userProfile");
+        const idElem = document.querySelector("#userId");
+        const pwElem = document.querySelector("#userPw");
+        const nameElem = document.querySelector("#userName");
+        const ageElem = document.querySelector("#userAge");
 
-        const file = document.querySelector("#userProfile");
-        const ID = document.querySelector("#userId");
-        const PW = document.querySelector("#userPw");
-        const NAME = document.querySelector("#userName");
-        const AGE = document.querySelector("#userAge");
-
-        // formData.append("ID", form.userid);
-        // formData.append("profile", form.userProfile.files[0]);
-
-        // multer 세부 설정에서 req.body를 쓰고 싶다면 파일을 맨 마지막에 append
-        formData.append("userId", ID.value);
-        formData.append("userPw", PW.value);
-        formData.append("userName", NAME.value);
-        formData.append("userAge", AGE.value);
-        formData.append("dynamicFile", file.files[0]);
-
-        // 파일 이름 바꾸기
-        // const newFile = new File(form.userProfile.files[0]);
-
-        // //확장자 가져오기
-        // const ext = form.userProfile.files[0].name.split(".")[1];
-        // console.log("ext >", ext);
+        formData.append("userProfile", fileElem.files[0]);
+        formData.append("userId", idElem.value);
+        formData.append("userPw", pwElem.value);
+        formData.append("userName", nameElem.value);
+        formData.append("userAge", ageElem.value);
 
         axios({
           method: "post",
-          url: "/uploads/practice1",
+          url: "/practice1/upload",
           data: formData,
           headers: {
             "content-type": "multipart/form-data",
           },
-        }).then((res) => {
-          console.log(res.data);
-          //   const { file, ID, PW, NAME, AGE } = response.data;
+        })
+          .then((response) => {
+            document.querySelector(
+              ".uId"
+            ).textContent = `${response.data.userInfo.userId}님 안녕하세요`;
+            document.querySelector(
+              ".uPw"
+            ).textContent = `비밀번호 ${response.data.userInfo.userPw}를 잘 기억해주세요.`;
+            document.querySelector(
+              ".uName"
+            ).textContent = `이름은 ${response.data.userInfo.userName}이시네요`;
+            document.querySelector(
+              ".uAge"
+            ).textContent = `${response.data.userInfo.userAge}살 이시군요!`;
 
-          //   const register = document.querySelector(".register");
-          //   regitser.document.style.display = "block";
+            const imgElem = document.querySelector("#profileImg");
+            imgElem.src = "/" + response.data.file.path;
 
-          //   const imgElem = document.querySelector("img");
-          //   imgElem.src = "/" + file.path;
-
-          //   const uId = document.querySelector(".uId");
-          //   uId.textContent = `${ID}님 환영합니다!`;
-        });
+            const registerDiv = document.querySelector(".register");
+            registerDiv.style.display = "block";
+          })
+          .catch((error) => {
+            console.error("Registration failed:", error);
+          });
       }
     </script>
   </body>
