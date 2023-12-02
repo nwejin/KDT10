@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer src="/static/user.js"></script>
+  </head>
+  <body>
+    <h1>회원가입</h1>
+
+    <form action="" name="signup-form">
+      <label for="userId">ID</label>
+      <input type="text" name="userId" id="userId" />
+      <br />
+      <label for="userPw">Password</label>
+      <input type="password" name="userPw" id="userPw" />
+      <br />
+      <label for="userName">Name</label>
+      <input type="text" name="userName" id="userName" />
+      <br />
+      <button type="button" onclick="register()">Register</button>
+    </form>
+
+    <a href="/user/signin">Login</a>
+  </body>
+</html>
+
+<!-- 회원가입 
+
+  회원가입 성공 시 - 로그인 페이지로 이동
+  아이디, 비밀번호, 이름 입력 후 
+  register버튼 클릭 시 해당 정보들이 DB로 넘어가서 저장되고 
+  회원 가입 성공
+-->
