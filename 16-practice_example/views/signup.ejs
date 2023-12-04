@@ -15,18 +15,46 @@
 
     <form action="" name="signup-form">
       <label for="userId">ID</label>
-      <input type="text" name="userId" id="userId" />
+      <input type="text" name="userId" id="userId" required />
       <br />
       <label for="userPw">Password</label>
-      <input type="password" name="userPw" id="userPw" />
+      <input type="password" name="userPw" id="userPw" required />
       <br />
       <label for="userName">Name</label>
-      <input type="text" name="userName" id="userName" />
+      <input type="text" name="userName" id="userName" required />
       <br />
       <button type="button" onclick="register()">Register</button>
     </form>
 
     <a href="/user/signin">Login</a>
+
+    <script>
+      function register() {
+        const form = document.forms["signup-form"];
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        axios({
+          method: "POST",
+          url: "/user/signup",
+          data: {
+            userId: form.userId.value,
+            pw: form.userPw.value,
+            name: form.userName.value,
+          },
+        }).then((res) => {
+          console.log(res.data);
+
+          alert("회원가입 성공!");
+
+          // 가입 성공 시 로그인 페이지 이동
+          document.location.href = "/user/signin";
+        });
+      }
+    </script>
   </body>
 </html>
 

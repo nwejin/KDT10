@@ -8,3 +8,13 @@ const conn = mysql.createConnection({
   password: "user1234",
   database: "kdt2",
 });
+
+// 회원 가입
+
+exports.postSignup = (data) => {
+  console.log("postSignup >", data);
+
+  const sql = "INSERT INTO user (userid, name, pw) VALUES ( ? , ? , ? )";
+
+  const values = [data.userid, data.name, data.pw];
+};

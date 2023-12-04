@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원 정보</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>회원 정보</h1>
+
+    <a href="/user">HOME</a>
+
+    <p>ID 수정 불가능, Password, name 수정 가능</p>
+
+    <form action="" name="form_profile">
+      <label for="userid">ID</label>
+      <input type="hidden" name="" id="id" value="<%- data.id%>" />
+      <input
+        type="text"
+        name=""
+        id="userid"
+        readonly
+        value="<%= data.userid%>"
+      />
+      <br />
+      <label for="">Password</label>
+      <input
+        type="password"
+        name="pw"
+        id="password"
+        value="<%= data.pw%>"
+        required
+      />
+      <br />
+      <label for="">Name</label>
+      <input type="text" name="" id="name" value="<%= data.name%>" />
+      <br />
+      <button type="button" onclick="profileEdit()">Edit</button>
+      <button type="button" onclick="profileDelete()">Delete</button>
+    </form>
+
+    <script>
+      function profileEdit() {
+        const form = document.forms["form_profile"];
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        axios({
+          methid: "patch",
+          url: "/user/profile/edit",
+          data: {
+            id: form.id.value,
+            userid: form.userid.value,
+            pw: form.pw.value,
+            name: form.name.value,
+          },
+        }).then((res) => {
+          console.log(res.body);
+        });
+      }
+
+      function profileDelete() {
+        const form = document.forms["form_profile"];
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+
+          axios({
+            method: "DELETE",
+            url: "/user/profile/Delete",
+            data: {
+              id: form.id.value,
+            },
+          })
+            .then((res) => {
+              console.log("회원 탈퇴 성공!");
+
+              document.location.herf = "/user";
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
+      }
+    </script>
+  </body>
+</html>

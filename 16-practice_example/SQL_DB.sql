@@ -9,9 +9,6 @@ insert INTO user VALUES (NULL, 'cjleo', '최진', '1234');
 insert into user values (null, 'coolman', '최시원', '1234');
 insert into user values (null, 'cjdrnsdl', '청군', '1234');
 
-SELECT 
-    *
-FROM
-    user;
+select * from user;
 
 select * from mysql.user;

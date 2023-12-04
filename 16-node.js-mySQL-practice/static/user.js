@@ -17,14 +17,15 @@ function register() {
   }
 
   axios({
-    method: "post",
-    url: "/signup",
+    method: "POST",
+    url: "/user/signup",
     data: {
       id: form.userId.value,
       pw: form.userPw.value,
       name: form.userName.value,
     },
+  }).then((res) => {
+    console.log(res.data);
+    window.location.href = "/user/signin";
   });
-
-  document.location.href = "/user/signup";
 }
