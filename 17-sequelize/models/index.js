@@ -21,6 +21,6 @@ db.Visitor = require("./Visitor")(sequelize, Sequelize);
 // db = { sequelize: sequelize, Sequelize: Sequelize, Visitor: ~~~ ?}
 
 module.exports = db;
-// ap.js에서 사용
+// app.js에서 사용
 // db라는 변수를 내보냄
 // 시퀄라이즈 객체를 만들고 모듈로써 내보내서 '다른 파일에서 모두 같은 객체를 사용할 수 있게 함'
