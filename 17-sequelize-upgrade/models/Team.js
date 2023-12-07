@@ -1,12 +1,12 @@
 const TeamModel = (sequelize, DataTypes) => {
   const Team = sequelize.define(
-    "team",
+    "Team",
     {
       team_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        allowNull: true,
-        auto_increment: true,
+        allowNull: false,
+        autoIncrement: true,
       },
       name: {
         type: DataTypes.STRING(30),

@@ -1,12 +1,12 @@
 const ProfileModel = (sequelize, DataTypes) => {
   const Profile = sequelize.define(
-    "profile",
+    "Profile",
     {
       profile_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        allowNull: true,
-        auto_increment: true,
+        allowNull: false,
+        autoIncrement: true,
       },
       position: {
         type: DataTypes.STRING(30),
@@ -14,7 +14,7 @@ const ProfileModel = (sequelize, DataTypes) => {
       },
       salary: {
         type: DataTypes.INTEGER,
-        alllowNull: false,
+        allowNull: false,
       },
     },
     {

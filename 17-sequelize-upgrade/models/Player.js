@@ -1,12 +1,12 @@
 const PlayerModel = (sequelize, DataTypes) => {
   const Player = sequelize.define(
-    "player",
+    "Player",
     {
       player_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        allowNull: true,
-        auto_increment: true,
+        allowNull: false,
+        autoIncrement: true,
       },
       name: {
         type: DataTypes.STRING(30),
@@ -14,7 +14,7 @@ const PlayerModel = (sequelize, DataTypes) => {
       },
       age: {
         type: DataTypes.INTEGER,
-        alllowNull: false,
+        allowNull: false,
       },
     },
     {

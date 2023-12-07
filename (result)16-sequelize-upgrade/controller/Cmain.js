@@ -14,11 +14,11 @@ exports.getPlayers = async (req, res) => {
 exports.getPlayer = async (req, res) => {
   try {
     const { player_id } = req.params;
-    const player = await Player.findeOne({
+    const player = await Player.findOne({
       where: { player_id },
     });
-    res.sned(player);
-  } catch {
+    res.send(player);
+  } catch (err) {
     console.error(err);
     res.send("internal server error!");
   }
@@ -33,7 +33,7 @@ exports.postPlayer = async (req, res) => {
       team_id,
     });
     res.send(newPlayer);
-  } catch {
+  } catch (err) {
     console.error(err);
     res.send("internal server error!");
   }
@@ -53,7 +53,7 @@ exports.patchPlayer = async (req, res) => {
       },
       res.send(updatedPlayer)
     );
-  } catch {
+  } catch (err) {
     console.error(err);
     res.send("internal server error!");
   }
@@ -87,7 +87,7 @@ exports.getTeams = async (req, res) => {
   try {
     // 쿼리 스트링으로 조회 기준 설정
     const { sort, search } = req.query;
-
+    let teams;
     // sort키가 있는 경우 Name 기준 오름차순 설정
     if (sort === "name_asc") {
       teams = await Team.findAll({
@@ -109,7 +109,36 @@ exports.getTeams = async (req, res) => {
     }
 
     res.send(teams);
-  } catch {
+  } catch (err) {
+    console.error(err);
+    res.send("internal server error!");
+  }
+};
+
+exports.getTeam = async (req, res) => {
+  try {
+    const { team_id } = req.params;
+    const team = await Team.findOne({
+      attributes: ["team_id", "name"],
+      where: { team_id },
+    });
+    res.send(team);
+  } catch (err) {
+    console.error(err);
+    res.send("internal server error!");
+  }
+};
+
+exports.getTeamPlayers = async (req, res) => {
+  try {
+    const { team_id } = req.params;
+    const team = await Team.findOne({
+      where: { team_id },
+      include: [{ model: player }],
+      // join과 같은 역할
+    });
+    res.send(team);
+  } catch (err) {
     console.error(err);
     res.send("internal server error!");
   }
