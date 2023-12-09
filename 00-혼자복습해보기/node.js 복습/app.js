@@ -5,8 +5,7 @@ const PORT = 8000;
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
-app.use("/statice", express.static(__dirname + "/static"));
-
+app.use("/static", express.static(__dirname + "/static"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -18,5 +17,5 @@ app.get("*", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`${PORT} opening`);
+  console.log(`${PORT} PORT OPEN! `);
 });
