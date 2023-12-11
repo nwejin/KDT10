@@ -1,11 +1,11 @@
-// async - awati
+// async - await
 // async: 함수 앞에 붙이는 키워드
 // - 함수만 보고도 비동기 함수임을 알수 있다.
 // - promise를 반환
 
 const { reject } = require("async");
 
-// await: rlekflek
+// await:  기다리다
 // - 성공/실패도 promise 객체의 실행이 완료되기를 기다려줌
 // - await 뒤에는 promise가 오게됨
 // * async 와 await은 짝궁 => async 키워드를 사용한 함수 내에서만 await을 사용할 수 있다.
