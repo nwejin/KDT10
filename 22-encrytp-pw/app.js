@@ -1,6 +1,10 @@
 const express = require("express");
 const app = express();
-const PORT = 8000;
+const dotenv = require("dotenv");
+const session = require("express-session");
+dotenv.config();
+const PORT = process.env.PORT || 8888;
+
 const db = require("./models/index");
 
 app.set("view engine", "ejs");
