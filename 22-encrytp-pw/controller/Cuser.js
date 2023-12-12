@@ -24,6 +24,7 @@ exports.postRegister = async (req, res) => {
 exports.getLogin = (req, res) => {
   res.render("login");
 };
+
 exports.postLogin = async (req, res) => {
   try {
     const { userid, pw } = req.body;

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>practice</title>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <style>
+      .chat-list {
+        background-color: lightblue;
+        width: 300px;
+        height: 600px;
+        padding: 10px;
+        overflow-y: scroll;
+      }
+
+      .chat-list div {
+        margin-top: 3px;
+      }
+
+      .chat-list div div {
+        display: inline-block;
+        padding: 3px;
+      }
+
+      input {
+        width: 250px;
+        height: 30px;
+      }
+
+      .my-chat {
+        text-align: right;
+      }
+
+      .my-chat div {
+        width: fit-content;
+        background-color: yellow;
+        border-radius: 5px;
+      }
+
+      .other-chat {
+        width: fit-content;
+        background-color: white;
+        border-radius: 5px;
+      }
+
+      button {
+        height: 34px;
+        width: 60px;
+      }
+      .notice {
+        color: #005397;
+        text-align: center;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="chat-box">
+      <div class="chat-list">
+        <div class="my-chat">
+          <div>user1 : 안녕</div>
+        </div>
+        <div class="other-chat">
+          <div>user2: 어 안녕?</div>
+        </div>
+      </div>
+    </main>
+
+    <input
+      type="text"
+      name="text"
+      id="message"
+      placeholder="대화를 입력하세요!"
+    />
+    <button type="button" onclick="send()">전송</button>
+
+    <script>
+      const socket = io.connect();
+      const form = document.forms["form"];
+
+      socket.on("connect", () => {
+        console.log("클라이언트 연결 완료 >", socket.id);
+      });
+
+      function send() {
+        socket.emit("chat", { who: "client", msg: form.text.value });
+      }
+
+      // [실습 3]
+      socket.on("notice", (msg) => {
+        document
+          .querySelector(".chat-list")
+          .insertAdjacentHTML("beforeend", `<div class='notice'> ${msg}</div>`);
+      });
+
+      // [실습 4]
+      // socket.on("newChat", (chat) => {});
+    </script>
+  </body>
+</html>
