@@ -8,9 +8,13 @@
     <script src="/socket.io/socket.io.js"></script>
 
     <style>
+      h1 {
+        width: 400px;
+        text-align: center;
+      }
       .chat-list {
         background-color: lightblue;
-        width: 300px;
+        width: 400px;
         height: 600px;
         padding: 10px;
         overflow-y: scroll;
@@ -23,6 +27,11 @@
       .chat-list div div {
         display: inline-block;
         padding: 3px;
+      }
+
+      .user-list {
+        width: 250px;
+        height: 20px;
       }
 
       input {
@@ -55,10 +64,27 @@
         text-align: center;
         font-size: 12px;
       }
+
+      /* 실습 5 */
+      .d-none {
+        display: none;
+      }
+
+      .join-btn {
+        width: 200px;
+      }
+
+      .secret-chat div {
+        background-color: tomato;
+      }
     </style>
   </head>
   <body>
-    <main class="chat-box">
+    <h1>Chat Practice</h1>
+    <button type="button" onclick="join()" class="join-btn">
+      채팅방 입장하기
+    </button>
+    <main class="chat-box d-none">
       <div class="chat-list">
         <div class="my-chat">
           <div>user1 : 안녕</div>
@@ -67,27 +93,29 @@
           <div>user2: 어 안녕?</div>
         </div>
       </div>
+      <select name="" id="user-list"></select
+      >에게
+      <br />
+      <input
+        type="text"
+        name="text"
+        id="message"
+        placeholder="대화를 입력하세요!"
+        onkeydown="if(window.event.keyCode == 13) {send()}"
+      />
+      <button type="button" onclick="send()">전송</button>
     </main>
-
-    <input
-      type="text"
-      name="text"
-      id="message"
-      placeholder="대화를 입력하세요!"
-    />
-    <button type="button" onclick="send()">전송</button>
 
     <script>
       const socket = io.connect();
-      const form = document.forms["form"];
 
       socket.on("connect", () => {
         console.log("클라이언트 연결 완료 >", socket.id);
       });
 
-      function send() {
-        socket.emit("chat", { who: "client", msg: form.text.value });
-      }
+      // function send() {
+      //   socket.emit("chat", { who: "client", msg: form.text.value });
+      // }
 
       // [실습 3]
       socket.on("notice", (msg) => {
@@ -97,7 +125,91 @@
       });
 
       // [실습 4]
-      // socket.on("newChat", (chat) => {});
+      // 1. 인풋창에 메세지 입력, 전송 버튼 클릭 -> 서버에 emit 내용 보내기
+      // 2. 서버측에서 newMessage 이벤트를 받아서 모두에게 새로운 이벤트로 아이디, 메세지 보내기
+      // 3. 클라이언트측에서 newMessage 이벤트를 받아서, 화면에 내가 보낸 메세지인지 아닌지 판별(socket.id를 통해) 해서 위치 지정
+
+      // 4-1.서버에 보내기
+      function send() {
+        const chat = document.getElementById("message").value;
+        const data = {
+          //  전체: all || dm: socket.id
+          dm: document.getElementById("user-list").value,
+          id: socket.id,
+          msg: chat,
+        };
+        socket.emit("send", data);
+        // chat = "";
+        document.getElementById("message").value = "";
+      }
+
+      // 4-2.서버에서 받아서 보여주기
+      socket.on("newMessage", (data) => {
+        const chatList = document.querySelector(".chat-list");
+        const div = document.createElement("div"); // my-chat || other-chat
+        const divChat = document.createElement("div"); // 실제 채팅이 들어가는 div
+
+        if (data.id === socket.id) {
+          // 내가 보낸 메세지
+          div.classList.add("my-chat");
+        } else {
+          // 다른 사람이 보낸 메세지
+          div.classList.add("other-chat");
+        }
+
+        if (data.dm) {
+          div.classList.add("secret-chat");
+          divChat.textContent = data.dm; // '(DM)''
+        }
+
+        divChat.textContent += `${data.id} : ${data.msg}`;
+        div.append(divChat);
+        chatList.append(div);
+
+        // 메세지가 많아져서 스크롤이 생겨도 하단 고정
+        chatList.scrollTop = chatList.scrollHeight;
+      });
+
+      //  [실습 5]
+      // ejs에서는 본인의 socket.id만 알수있어서 서버에서 id값들을 보내줘야한다.
+      // 1. 채팅방에 입장했다고 가정하고 입장 버튼 생성 -> 서버측에 join 이벤트를 emit으로 보냄
+      // 2. (서버) join 이벤트를 받아서 전체 socket.id 값을 클라이언트에 전송
+      // 3. (클라이언트) 2에서 받은 값을 select안에 추가
+
+      function join() {
+        socket.emit("setUserList", { id: socket.id });
+      }
+
+      // 입장 성공: 입장 버튼 비활성화, 채팅창 보이기
+      socket.on("enrtySuccess", (id) => {
+        // 버튼 비활성화
+        // document.querySelector(".join-btn").disabled = true;
+        document.querySelector(".join-btn").classList.add("d-none");
+
+        // 채팅창 보이기
+        document.querySelector(".chat-box").classList.remove("d-none");
+      });
+
+      // 유저 목록 업데이트 (select 박스의 option 태그 개수 변경)
+      socket.on("updateUsers", (userObjs) => {
+        // userObjs: {socket.id : socket.id, .....}
+        console.log("userList >", userObjs);
+
+        let options = `<option value='all'> 전체 </option>`;
+
+        // userObjs 반복하여 option 태그에 추가
+        // option 태그의 value값 => socket.id 값
+
+        // userObjs의 key 만큼 반복
+        for (let key in userObjs) {
+          // 본인 제외
+          if (key !== socket.id) {
+            options += `<option value='${key}'> ${key} </option>`;
+          }
+        }
+
+        document.querySelector("#user-list").innerHTML = options;
+      });
     </script>
   </body>
 </html>
