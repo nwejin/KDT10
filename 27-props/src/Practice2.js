@@ -1,3 +1,6 @@
+//import 'css경로'
+// import book from '경로'
+
 function Practice2(props) {
   const { img, title, author, price, type } = props;
   const style = {

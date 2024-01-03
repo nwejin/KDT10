@@ -18,7 +18,7 @@ Practice3.defaultProps = {
 };
 
 Practice3.propTypes = {
-  text: PropTypes.string,
+  text: PropTypes.string.isRequired,
 };
 
 export default Practice3;
