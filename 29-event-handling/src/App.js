@@ -5,11 +5,12 @@ import Counter from './Counter';
 import HandlerEx from './components/ex/HandlerEx';
 import Practice2 from './components/ex/Practice2';
 import Practice3 from './components/ex/Practice3';
+import Practice4 from './components/ex/Practice4';
 
 function App() {
   return (
     <div className="App">
-      <hr />
+      {/* <hr />
       <SyntheticEvent />
 
       <hr />
@@ -25,7 +26,10 @@ function App() {
       <Practice2 />
 
       <hr />
-      <Practice3 />
+      <Practice3 /> */}
+
+      <hr />
+      <Practice4 />
     </div>
   );
 }
