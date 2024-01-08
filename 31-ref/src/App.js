@@ -1,16 +1,15 @@
-// import RefClass1 from './RefClass1';
-// import RefClass2 from './RefClass2';
-import Clss from './Clss';
+import RefClass1 from './RefClass1';
+import RefClass2 from './RefClass2';
+
 import RefFunc1 from './RefFunc1';
 import RefFunc2 from './RefFunc2';
 
 function App() {
   return (
     <div className="App">
-      {/* <RefClass1></RefClass1>
+      <RefClass1></RefClass1>
       <hr />
-      <RefClass2></RefClass2> */}
-      <Clss></Clss>
+      <RefClass2></RefClass2>
       <hr />
       <RefFunc1></RefFunc1>
       <RefFunc2></RefFunc2>

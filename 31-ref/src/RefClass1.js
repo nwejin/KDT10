@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class RefClass1 extends Component() {
+class RefClass1 extends Component {
   // 클래스형 컴포넌트 - 콜백함수를 이용한 ref
 
   handelFocus = () => {

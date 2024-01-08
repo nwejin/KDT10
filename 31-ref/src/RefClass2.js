@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-class RefClass2 extends Component() {
+class RefClass2 extends Component {
   myInput = React.createRef();
 
   handelFocus = () => {
     // ref를 설정한 DOM에 접근하기 위해서는 this.myInput.currend 이용
     console.log(this.myInput.current);
-    this.muInput.current.focus();
+    this.myInput.current.focus();
   };
 
   render() {
