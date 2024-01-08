@@ -44,38 +44,36 @@ function Alphabet() {
 
   //   실습
   const [data, setData] = useState([
-    {
-      id: 1,
-      name: '코디',
-      email: 'codi@gamil.com',
-    },
-    {
-      id: 2,
-      name: '윤소희',
-      email: 'yoonsohee@gmail.com',
-    },
+    { id: 1, user: '코디', email: 'codee@gmail.com' },
+    { id: 2, user: '윤소희', email: 'yoonsohee@gmail.com' },
   ]);
 
-  const [inputName, setInputName] = useState('');
+  const [inputUser, setInputUser] = useState('');
   const [inputEmail, setInputEmail] = useState('');
+  const [nextId, setNextId] = useState(data.length + 1); // useState(3)
 
-  const addUser = () => {
-    const newName = data.concat({
-      id: data.length + 1,
-      name: inputName,
+  const onChangeUser = (e) => setInputUser(e.target.value);
+  const onChangeEmail = (e) => setInputEmail(e.target.value);
+  const eventClick = () => {
+    const nextData = data.concat({
+      id: nextId,
+      user: inputUser,
+      email: inputEmail,
     });
 
-    const newEmail = data.concat({
-      id: data.length + 1,
-      emali: inputEmail,
-    });
-
-    setData(newName);
-
-    setInputName('');
+    setNextId(nextId + 1);
+    setData(nextData);
+    setInputUser('');
     setInputEmail('');
   };
 
+  const dataList = data.map((data) => (
+    <h2 key={data.id}>
+      {data.user}: {data.email}
+    </h2>
+  ));
+
+  //
   const handleKeydown = (e) => {
     // console.log(e.key);
 
@@ -137,43 +135,27 @@ function Alphabet() {
       <br />
       <br />
       <h1>실습 </h1>
-      <input
-        type="text"
-        name=""
-        id=""
-        placeholder="이름"
-        value={inputName}
-        onChange={(e) => {
-          setInputName(e.target.value);
-          console.log('name', e.target.value);
-        }}
-      />
-      <input
-        type="text"
-        name=""
-        id=""
-        placeholder="이메일"
-        value={inputEmail}
-        onChange={(e) => {
-          setInputEmail(e.target.value);
-          console.log('email', e.target.value);
-        }}
-      />
-      <button onClick={addUser}>등록</button>
-      <th>
-        {data.map((value) => {
-          //
-          return (
-            <tr
-              key={value.id}
-              // onDoubleClick={}
-            >
-              <td>{value.name}</td>
-              <td>{value.email}</td>
-            </tr>
-          );
-        })}
-      </th>
+      <div>
+        <input
+          type="text"
+          name="user"
+          placeholder="이름"
+          value={inputUser}
+          onChange={onChangeUser}
+        />
+
+        <input
+          type="text"
+          name="email"
+          placeholder="이메일"
+          value={inputEmail}
+          onChange={onChangeEmail}
+        />
+
+        <button onClick={eventClick}>등록</button>
+
+        <div>{dataList}</div>
+      </div>
     </>
   );
 }
