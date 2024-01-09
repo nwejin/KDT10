@@ -1,0 +1,63 @@
+$color-pink: pink;
+$color-green: green;
+$color-yellow: yellow;
+
+.main {
+  display: flex;
+
+  flex-direction: column;
+}
+
+@mixin animation-rotate($name, $range) {
+  @keyframes #{$name} {
+    0% {
+      top: 0;
+      left: 0;
+    }
+    25% {
+      top: 0;
+      left: $range;
+    }
+    50% {
+      top: $range;
+      left: $range;
+    }
+
+    75% {
+      top: $range;
+      left: 0;
+    }
+    100% {
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+.circle {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-bottom: 30px;
+  position: relative;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+.pink {
+  @include animation-rotate(Ani1, 50px);
+  animation-name: Ani1;
+  background-color: $color-pink;
+}
+
+.yellow {
+  background-color: $color-yellow;
+  @include animation-rotate(Ani2, 100px);
+  animation-name: Ani2;
+}
+
+.green {
+  background-color: $color-green;
+  @include animation-rotate(Ani3, 150px);
+  animation-name: Ani3;
+}

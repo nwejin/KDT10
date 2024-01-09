@@ -15,7 +15,13 @@ function Practice1() {
       <div className="body body5"></div>
 
       {/*  process.env.PUBLIC_URL: /public 폴더 경로 */}
-      <img className="grass" src={''} alt="잔디" />
+      <img
+        className="grass"
+        src={
+          'https://img.freepik.com/free-vector/green-grass-border-realistic-design_52683-15183.jpg?t=st=1704759358~exp=1704759958~hmac=ae1827800f5b4dccaf88889edd4ebdb0ef6826b3d3d073fe60bac43583d32d65'
+        }
+        alt="잔디"
+      />
     </div>
   );
 }
