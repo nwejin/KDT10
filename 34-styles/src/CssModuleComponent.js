@@ -1,4 +1,5 @@
 import styles from './style/cssModule.module.css';
+import './style/component.css';
 
 // CSS Module
 // - 클래스명 중복 방지
